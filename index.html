@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ahsan Farabi | Portfolio</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
     html {
       scroll-behavior: smooth;
@@ -21,21 +22,21 @@
         <a href="#projects" class="hover:text-yellow-300">Projects</a>
         <a href="#skills" class="hover:text-yellow-300">Skills</a>
         <a href="#experience" class="hover:text-yellow-300">Experience</a>
+        <a href="#awards" class="hover:text-yellow-300">Awards</a>
         <a href="#contact" class="hover:text-yellow-300">Contact</a>
       </div>
     </div>
   </nav>
 
   <!-- Hero -->
-  <section class="h-screen flex items-center justify-center" id="home">
-    <div class="text-center px-4">
-      <h2 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm Ahsan</h2>
-      <p class="text-lg md:text-xl mb-6">CS Student | AI Enthusiast | ML Developer</p>
-      <div class="space-x-4">
-        <a href="https://github.com/TheAhsanFarabi" class="text-blue-400 hover:underline">GitHub</a>
-        <a href="https://linkedin.com/in/ahsanfarabi" class="text-blue-400 hover:underline">LinkedIn</a>
-        <a href="https://leetcode.com/u/AhsanFarabi/" class="text-blue-400 hover:underline">Leetcode</a>
-      </div>
+  <section class="h-screen flex flex-col items-center justify-center text-center pt-20" id="home">
+    <img src="your-image.jpg" alt="Ahsan Farabi" class="w-40 h-40 rounded-full border-4 border-yellow-300 mb-4">
+    <h2 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm Ahsan</h2>
+    <p class="text-lg md:text-xl mb-6">CS Student | AI Enthusiast | ML Developer</p>
+    <div class="space-x-4">
+      <a href="https://github.com/TheAhsanFarabi" class="text-blue-400 hover:underline">GitHub</a>
+      <a href="https://linkedin.com/in/ahsanfarabi" class="text-blue-400 hover:underline">LinkedIn</a>
+      <a href="https://leetcode.com/u/AhsanFarabi/" class="text-blue-400 hover:underline">Leetcode</a>
     </div>
   </section>
 
@@ -47,58 +48,110 @@
     </div>
   </section>
 
-  <!-- Projects -->
+  <!-- Research Projects -->
   <section id="projects" class="py-16 px-6">
     <div class="max-w-5xl mx-auto">
-      <h3 class="text-3xl font-semibold mb-8">Projects</h3>
+      <h3 class="text-3xl font-semibold mb-8">Research Projects</h3>
       <div class="grid gap-6 md:grid-cols-2">
         <div class="bg-gray-700 p-4 rounded-xl">
-          <h4 class="text-xl font-bold">Emotion Recognition System</h4>
+          <h4 class="text-xl font-bold"><i class="fas fa-brain mr-2"></i>Emotion Recognition System</h4>
           <p>Deep learning-based emotion classification using CNN and OpenCV.</p>
           <a href="https://github.com/TheAhsanFarabi/Emotion-Recognition-System" class="text-blue-400">View Project</a>
         </div>
         <div class="bg-gray-700 p-4 rounded-xl">
-          <h4 class="text-xl font-bold">Cyber Bully Detection System</h4>
+          <h4 class="text-xl font-bold"><i class="fas fa-shield-alt mr-2"></i>Cyber Bully Detection System</h4>
           <p>Text classification model to detect offensive speech using NLP techniques.</p>
           <a href="https://github.com/TheAhsanFarabi/Cyber-Bully-Detection-System" class="text-blue-400">View Project</a>
         </div>
         <div class="bg-gray-700 p-4 rounded-xl">
-          <h4 class="text-xl font-bold">NIDS</h4>
+          <h4 class="text-xl font-bold"><i class="fas fa-network-wired mr-2"></i>NIDS</h4>
           <p>Intrusion detection system with ensemble learning achieving 99% accuracy.</p>
           <a href="https://github.com/TheAhsanFarabi/Network-Intrusion-Detection-System" class="text-blue-400">View Project</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Academic Projects -->
+  <section class="py-16 px-6 bg-gray-800">
+    <div class="max-w-5xl mx-auto">
+      <h3 class="text-3xl font-semibold mb-8">Academic Projects</h3>
+      <div class="grid gap-6 md:grid-cols-2">
         <div class="bg-gray-700 p-4 rounded-xl">
-          <h4 class="text-xl font-bold">Blogpotro</h4>
-          <p>AI-powered blogging platform with content monetization built in Laravel & Tailwind.</p>
+          <h4 class="text-xl font-bold"><i class="fas fa-store-alt mr-2"></i>Unisales</h4>
+          <p>B2B platform connecting farmers and businesses with bidding and logistics features.</p>
+          <a href="https://github.com/TheAhsanFarabi/unisales" class="text-blue-400">View Project</a>
+        </div>
+        <div class="bg-gray-700 p-4 rounded-xl">
+          <h4 class="text-xl font-bold"><i class="fas fa-blog mr-2"></i>Blogpotro</h4>
+          <p>AI-enhanced blogging platform with monetization and collaboration features.</p>
           <a href="https://thefinancialexpress.com.bd/sci-tech/bangladeshi-website-blogpotro-promises-productivity-with-joy-1667038097" class="text-blue-400">News Article</a>
+        </div>
+        <div class="bg-gray-700 p-4 rounded-xl">
+          <h4 class="text-xl font-bold"><i class="fas fa-gamepad mr-2"></i>Platformer Game</h4>
+          <p>JavaFX game to help students explore university life through puzzles and challenges.</p>
+          <a href="https://github.com/TheAhsanFarabi/University-Platformer-Game" class="text-blue-400">View Project</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Skills -->
-  <section id="skills" class="py-16 px-6 bg-gray-800">
-    <div class="max-w-4xl mx-auto">
-      <h3 class="text-3xl font-semibold mb-6">Skills</h3>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <span>Python</span>
-        <span>TensorFlow</span>
-        <span>PyTorch</span>
-        <span>Java</span>
-        <span>C/C++</span>
-        <span>JavaScript</span>
-        <span>Node.js</span>
-        <span>Laravel</span>
-        <span>Tailwind CSS</span>
-        <span>Figma</span>
-        <span>SQL</span>
-        <span>Jira</span>
+<section id="skills" class="py-16 px-6">
+  <div class="max-w-4xl mx-auto">
+    <h3 class="text-3xl font-semibold mb-6">Skills</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div>
+        <h4 class="text-xl font-bold mb-2">Programming Languages</h4>
+        <ul class="list-disc list-inside">
+          <li>C</li>
+          <li>C++</li>
+          <li>Java</li>
+          <li>Python</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-xl font-bold mb-2">Scripting & Web Languages</h4>
+        <ul class="list-disc list-inside">
+          <li>BASH</li>
+          <li>HTML</li>
+          <li>PHP</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>SQL</li>
+          <li>LaTeX</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-xl font-bold mb-2">Machine Learning</h4>
+        <ul class="list-disc list-inside">
+          <li>TensorFlow</li>
+          <li>Keras</li>
+          <li>PyTorch</li>
+          <li>Scikit-learn</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-xl font-bold mb-2">Technologies & Tools</h4>
+        <ul class="list-disc list-inside">
+          <li>Node.js</li>
+          <li>Laravel</li>
+          <li>Tailwind CSS</li>
+          <li>Ajax</li>
+          <li>Logisim</li>
+          <li>CISCO Packet Tracer</li>
+          <li>Figma</li>
+          <li>Jira</li>
+          <li>Notion</li>
+        </ul>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- Experience -->
-  <section id="experience" class="py-16 px-6">
+  <section id="experience" class="py-16 px-6 bg-gray-800">
     <div class="max-w-4xl mx-auto">
       <h3 class="text-3xl font-semibold mb-6">Experience</h3>
       <div class="space-y-4">
@@ -111,6 +164,22 @@
           <p>Mentored juniors in Python, attended hackathons, and participated in workshops.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Awards & Certifications -->
+  <section id="awards" class="py-16 px-6">
+    <div class="max-w-4xl mx-auto">
+      <h3 class="text-3xl font-semibold mb-6">Awards & Certifications</h3>
+      <ul class="list-disc list-inside space-y-2">
+        <li>1st Runner Up - DBMS Poster, CSE Project Show Fall 23</li>
+        <li>4th Runner Up - DBMS, CSE Project Show Fall 23</li>
+        <li>2nd Runner Up - System Analysis and Design, Summer 24</li>
+        <li>2nd Runner Up - Advanced OOP, Fall 24</li>
+        <li>Academic Scholarship (50% - 3 times, 25% - 3 times)</li>
+        <li>Machine Learning Specialization by Stanford University</li>
+        <li>Git and GitHub by Google</li>
+      </ul>
     </div>
   </section>
 
