@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ahsan Farabi — Portfolio</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --ink: #0f0e0d;
+    --paper: #f5f2eb;
+    --accent: #c0392b;
+    --accent2: #2c3e50;
+    --muted: #7a7165;
+    --line: #d6d0c4;
+    --card: #edeae1;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    cursor: none;
+  }
+  .serif { font-family: 'DM Serif Display', serif; }
+  .mono { font-family: 'DM Mono', monospace; }
+
+  /* Custom cursor */
+  #cursor {
+    position: fixed; top: 0; left: 0; width: 10px; height: 10px;
+    background: var(--accent); border-radius: 50%;
+    pointer-events: none; z-index: 9999;
+    transition: transform 0.15s ease, opacity 0.2s;
+    transform: translate(-50%, -50%);
+  }
+  #cursor-ring {
+    position: fixed; top: 0; left: 0; width: 36px; height: 36px;
+    border: 1.5px solid var(--accent); border-radius: 50%;
+    pointer-events: none; z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: transform 0.35s ease, width 0.3s, height 0.3s, opacity 0.3s;
+    opacity: 0.5;
+  }
+
+  /* Noise texture overlay */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 1000;
+    opacity: 0.35;
+  }
+
+  /* Nav */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    border-bottom: 1px solid var(--line);
+    background: rgba(245, 242, 235, 0.9);
+    backdrop-filter: blur(12px);
+  }
+
+  /* Section fade-in */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* Tag pill */
+  .tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 11px;
+    font-family: 'DM Mono', monospace;
+    color: var(--muted);
+    background: transparent;
+    letter-spacing: 0.03em;
+  }
+  .tag-accent {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* Project card */
+  .proj-card {
+    border: 1px solid var(--line);
+    background: var(--card);
+    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  }
+  .proj-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 6px 10px 28px rgba(0,0,0,0.09);
+    border-color: var(--accent);
+  }
+
+  /* Timeline dot */
+  .tl-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--paper);
+    box-shadow: 0 0 0 2px var(--accent);
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+
+  /* Skill bar */
+  .skill-bar-track {
+    background: var(--line);
+    height: 3px;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .skill-bar-fill {
+    height: 100%; background: var(--accent);
+    width: 0; transition: width 1.2s cubic-bezier(.4,0,.2,1);
+    border-radius: 2px;
+  }
+
+  /* Hero big text */
+  .hero-name {
+    font-size: clamp(3rem, 9vw, 7.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.025em;
+  }
+  .hero-sub {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* Horizontal rule */
+  .rule {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 0;
+  }
+
+  /* Section label */
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* Big number */
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1;
+    color: var(--accent);
+  }
+
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: var(--accent); }
+
+  /* Sticky side label */
+  .side-label {
+    position: fixed; left: 20px; bottom: 36px;
+    writing-mode: vertical-rl;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    opacity: 0.6;
+  }
+  .side-label-right {
+    position: fixed; right: 20px; bottom: 36px;
+    writing-mode: vertical-rl;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    opacity: 0.6;
+    transform: rotate(180deg);
+  }
+
+  /* Active nav link */
+  .nav-link {
+    font-size: 12px; letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-family: 'DM Mono', monospace;
+    color: var(--muted);
+    transition: color 0.2s;
+    padding: 4px 0;
+    border-bottom: 1.5px solid transparent;
+  }
+  .nav-link:hover, .nav-link.active { color: var(--accent); border-color: var(--accent); }
+
+  /* Pub card */
+  .pub-card {
+    border-left: 3px solid var(--accent);
+    padding-left: 1.25rem;
+  }
+
+  /* Hero photo layout */
+  .hero-section {
+    background: var(--paper);
+  }
+  .hero-photo-wrap {
+    position: absolute;
+    top: 0; right: 0;
+    width: 52%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+  }
+  .hero-photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+  .hero-placeholder {
+    width: 100%; height: 100%;
+    background: var(--card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px dashed var(--line);
+  }
+  .hero-photo-fade {
+    position: absolute;
+    top: 0; left: 0;
+    width: 55%; height: 100%;
+    background: linear-gradient(to right, var(--paper) 30%, transparent 100%);
+    pointer-events: none;
+  }
+  .hero-btn-primary {
+    display: inline-block;
+    padding: 8px 22px;
+    border: 1.5px solid var(--ink);
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    font-family: 'DM Mono', monospace;
+    color: var(--ink);
+    background: transparent;
+    transition: background 0.2s, color 0.2s;
+    cursor: none;
+  }
+  .hero-btn-primary:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .hero-btn-secondary {
+    display: inline-block;
+    padding: 8px 22px;
+    border: 1.5px solid var(--line);
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    font-family: 'DM Mono', monospace;
+    color: var(--muted);
+    background: transparent;
+    transition: border-color 0.2s, color 0.2s;
+    cursor: none;
+  }
+  .hero-btn-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* Mobile menu */
+  #mobile-menu { display: none; }
+  @media (max-width: 768px) {
+    .side-label, .side-label-right { display: none; }
+    #mobile-menu.open { display: flex; }
+    .hero-photo-wrap { width: 100%; opacity: 0.15; }
+    .hero-photo-fade { width: 100%; background: linear-gradient(to right, var(--paper) 0%, rgba(245,242,235,0.6) 100%); }
+  }
+</style>
+</head>
+<body>
+
+<!-- Custom cursor -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- Side labels -->
+<div class="side-label">Dhaka, Bangladesh</div>
+<div class="side-label-right">afarabi221266@bscse.uiu.ac.bd</div>
+
+<!-- NAV -->
+<nav>
+  <div class="max-w-6xl mx-auto px-6 flex items-center justify-between h-12">
+    <span class="mono text-xs tracking-widest text-[var(--muted)]">AF</span>
+    <div class="hidden md:flex gap-7 items-center">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#education" class="nav-link">Education</a>
+      <a href="#research" class="nav-link">Research</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#achievements" class="nav-link">Awards</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+    <!-- Mobile burger -->
+    <button id="burger" class="md:hidden text-[var(--muted)] text-xl" style="cursor:none;">☰</button>
+  </div>
+  <!-- Mobile nav -->
+  <div id="mobile-menu" class="flex-col gap-3 px-6 pb-4 bg-[var(--paper)] border-t border-[var(--line)]">
+    <a href="#about" class="nav-link">About</a>
+    <a href="#education" class="nav-link">Education</a>
+    <a href="#research" class="nav-link">Research</a>
+    <a href="#projects" class="nav-link">Projects</a>
+    <a href="#skills" class="nav-link">Skills</a>
+    <a href="#achievements" class="nav-link">Awards</a>
+    <a href="#contact" class="nav-link">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="about" class="hero-section relative min-h-screen flex flex-col justify-center overflow-hidden pt-12">
+
+  <!-- Photo — right side, full height -->
+  <div class="hero-photo-wrap">
+    <img id="hero-photo" src="pp.png" alt="Ahsan Farabi"
+      onerror="this.style.display='none';document.getElementById('photo-placeholder').style.display='flex'"/>
+    <!-- Placeholder shown until a real photo is provided -->
+    <div id="photo-placeholder" class="hero-placeholder">
+      <div class="text-center">
+        <div class="mono text-xs text-[var(--muted)] mb-2">Upload your photo</div>
+        <div class="mono text-xs text-[var(--muted)] opacity-60">Replace src="" above</div>
+      </div>
+    </div>
+    <!-- Gradient fade on left edge of photo -->
+    <div class="hero-photo-fade"></div>
+  </div>
+
+  <!-- Text — left side -->
+  <div class="relative z-10 max-w-6xl mx-auto w-full px-6 md:px-16 py-20 flex flex-col justify-center min-h-screen">
+    <div class="max-w-lg">
+      <div class="reveal mb-5">
+        <span class="section-label">CSE Student & Researcher —</span>
+      </div>
+
+      <h1 class="reveal" style="transition-delay:0.1s; font-family:'DM Serif Display',serif; font-size:clamp(2.8rem,7vw,5.5rem); line-height:1.0; letter-spacing:-0.02em;">
+        Hello, I'm<br/><em>Ahsan!</em>
+      </h1>
+
+      <p class="reveal mt-4 mono text-sm text-[var(--muted)]" style="transition-delay:0.2s; letter-spacing:0.04em;">
+        CSE student at UIU, Dhaka —
+      </p>
+
+      <p class="reveal mt-5 text-[var(--muted)] text-sm leading-relaxed max-w-sm" style="transition-delay:0.25s">
+        Building at the intersection of AI, vision, and responsible systems. CGPA 3.85/4.00 · Published researcher · Blockchain finalist.
+      </p>
+
+      <div class="reveal mt-6 flex flex-wrap gap-2" style="transition-delay:0.3s">
+        <span class="tag tag-accent">Computer Vision</span>
+        <span class="tag tag-accent">LLMs</span>
+        <span class="tag">HCI</span>
+        <span class="tag">IoT</span>
+        <span class="tag">Blockchain</span>
+      </div>
+
+      <div class="reveal mt-8 flex flex-wrap gap-3" style="transition-delay:0.4s">
+        <a href="#contact" class="hero-btn-primary">Contact Me</a>
+        <a href="#research" class="hero-btn-secondary">View Research ↓</a>
+      </div>
+
+      <div class="reveal mt-6 flex flex-wrap gap-3" style="transition-delay:0.45s">
+        <a href="https://github.com/" target="_blank" class="tag hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors">GitHub ↗</a>
+        <a href="https://linkedin.com/" target="_blank" class="tag hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors">LinkedIn ↗</a>
+        <a href="#" target="_blank" class="tag hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors">Google Scholar ↗</a>
+        <a href="#" target="_blank" class="tag hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors">LeetCode ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats bar — bottom -->
+  <div class="relative z-10 w-full border-t border-[var(--line)] reveal" style="transition-delay:0.55s">
+    <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-[var(--line)]">
+      <div class="px-6 md:px-10 py-5">
+        <div class="stat-num">3.85</div>
+        <div class="section-label mt-1">CGPA / 4.00</div>
+      </div>
+      <div class="px-6 md:px-10 py-5">
+        <div class="stat-num">1</div>
+        <div class="section-label mt-1">Publication</div>
+      </div>
+      <div class="px-6 md:px-10 py-5">
+        <div class="stat-num">10+</div>
+        <div class="section-label mt-1">Projects</div>
+      </div>
+      <div class="px-6 md:px-10 py-5">
+        <div class="stat-num">100+</div>
+        <div class="section-label mt-1">LeetCode Solved</div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<hr class="rule max-w-6xl mx-auto px-6 md:px-16" />
+
+<!-- EDUCATION -->
+<section id="education" class="py-20 px-6 md:px-16 max-w-6xl mx-auto">
+  <div class="reveal mb-10">
+    <span class="section-label">— 02</span>
+    <h2 class="serif text-4xl md:text-5xl mt-2">Education</h2>
+  </div>
+  <div class="space-y-10">
+
+    <!-- UIU -->
+    <div class="reveal flex gap-6">
+      <div class="flex flex-col items-center">
+        <div class="tl-dot"></div>
+        <div class="flex-1 w-px bg-[var(--line)] mt-2"></div>
+      </div>
+      <div class="pb-10 flex-1">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+          <h3 class="font-semibold text-lg">United International University</h3>
+          <span class="mono text-xs text-[var(--muted)]">2022 – 2026</span>
+        </div>
+        <div class="text-[var(--muted)] text-sm mb-3">B.Sc. in Computer Science & Engineering · Major: Data Science · Dhaka, Bangladesh</div>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="tag tag-accent">CGPA 3.85 / 4.00</span>
+          <span class="tag">Machine Learning</span>
+          <span class="tag">Digital Image Processing</span>
+          <span class="tag">Data Mining</span>
+          <span class="tag">HCI</span>
+          <span class="tag">Software Testing</span>
+        </div>
+        <div class="bg-[var(--card)] border border-[var(--line)] p-4 rounded-sm text-sm">
+          <span class="mono text-xs text-[var(--muted)] block mb-1">THESIS</span>
+          <p>A Framework for Benchmarking and Fine-Tuning Lightweight Vision-Language Models for Water Monitoring</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- HSC -->
+    <div class="reveal flex gap-6">
+      <div class="flex flex-col items-center">
+        <div class="tl-dot"></div>
+        <div class="flex-1 w-px bg-[var(--line)] mt-2"></div>
+      </div>
+      <div class="pb-10 flex-1">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+          <h3 class="font-semibold text-lg">Uttara Model College</h3>
+          <span class="mono text-xs text-[var(--muted)]">2018 – 2020</span>
+        </div>
+        <div class="text-[var(--muted)] text-sm mb-2">Higher Secondary Certificate (HSC) · Science Group · Dhaka</div>
+        <span class="tag tag-accent">GPA 5.00 / 5.00</span>
+      </div>
+    </div>
+
+    <!-- SSC -->
+    <div class="reveal flex gap-6">
+      <div class="flex flex-col items-center">
+        <div class="tl-dot" style="background:var(--muted);box-shadow:0 0 0 2px var(--muted)"></div>
+      </div>
+      <div class="flex-1">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+          <h3 class="font-semibold text-lg">Uttara Model School</h3>
+          <span class="mono text-xs text-[var(--muted)]">2016 – 2018</span>
+        </div>
+        <div class="text-[var(--muted)] text-sm mb-2">Secondary School Certificate (SSC) · Science Group · Dhaka</div>
+        <span class="tag tag-accent">GPA 5.00 / 5.00</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="rule max-w-6xl mx-auto px-6 md:px-16" />
+
+<!-- EXPERIENCE -->
+<section class="py-20 px-6 md:px-16 max-w-6xl mx-auto">
+  <div class="reveal mb-10">
+    <span class="section-label">— 03</span>
+    <h2 class="serif text-4xl md:text-5xl mt-2">Experience</h2>
+  </div>
+  <div class="reveal proj-card p-6 md:p-8">
+    <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+      <div>
+        <h3 class="font-semibold text-lg">Undergraduate Teaching Assistant</h3>
+        <p class="text-[var(--muted)] text-sm">United International University, Dhaka</p>
+      </div>
+      <span class="mono text-xs text-[var(--muted)] border border-[var(--line)] px-3 py-1 rounded-sm">2024 – 2025</span>
+    </div>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="tag">OOP Lab — Summer 2024</span>
+      <span class="tag">DBMS Lab — Summer 2025</span>
+    </div>
+    <ul class="space-y-1 text-sm text-[var(--muted)] list-none">
+      <li class="flex gap-2"><span class="text-[var(--accent)]">→</span>Assisted faculty in conducting laboratory sessions</li>
+      <li class="flex gap-2"><span class="text-[var(--accent)]">→</span>Conducted tutorial classes to help students understand complex topics</li>
+      <li class="flex gap-2"><span class="text-[var(--accent)]">→</span>Maintained 3 hours of weekly student counseling for academic support</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="rule max-w-6xl mx-auto px-6 md:px-16" />
+
+<!-- RESEARCH -->
+<section id="research" class="py-20 px-6 md:px-16 max-w-6xl mx-auto">
+  <div class="reveal mb-10">
+    <span class="section-label">— 04</span>
+    <h2 class="serif text-4xl md:text-5xl mt-2">Research</h2>
+  </div>
+
+  <!-- Publication -->
+  <div class="reveal mb-12">
+    <span class="section-label mb-4 block">Publication</span>
+    <div class="pub-card">
+      <div class="flex flex-wrap gap-2 mb-3">
+        <span class="tag tag-accent">Conference Paper</span>
+        <span class="tag">Accepted — ICCIT 2025</span>
+      </div>
+      <h3 class="font-semibold text-base mb-1">EcoDetect: Lightweight Real-Time Recyclable Waste Detection Using YOLOv11n Trained on LLM-Guided Synthetic Data</h3>
+      <p class="text-[var(--muted)] text-sm mb-3">Ahsan Farabi, Md Abdul Ahad Minhaz, Israt Khandaker, Ibrahim Khalil Shanto, Md. Tanvir Raihan</p>
+      <p class="text-xs text-[var(--muted)]">28th International Conference on Computer and Information Technology, 2025</p>
+      <div class="flex flex-wrap gap-2 mt-4">
+        <a href="#" class="tag hover:text-[var(--accent)] hover:border-[var(--accent)] transition-colors">Paper ↗</a>
+        <a href="#" class="tag hover:text-[var(--accent)] hover:border-[var(--accent)] transition-colors">Code ↗</a>
+        <a href="#" class="tag hover:text-[var(--accent)] hover:border-[var(--accent)] transition-colors">Dataset ↗</a>
+        <a href="#" class="tag hover:text-[var(--accent)] hover:border-[var(--accent)] transition-colors">Video ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Research Projects -->
+  <span class="section-label mb-6 block reveal">Research Projects</span>
+  <div class="grid md:grid-cols-2 gap-4">
+
+    <div class="reveal proj-card p-5">
+      <div class="flex justify-between items-start mb-3">
+        <span class="tag tag-accent">Ongoing</span>
+      </div>
+      <h3 class="font-semibold mb-2">GreenPrompt</h3>
+      <p class="text-sm text-[var(--muted)] mb-3">Optimizing LLM prompts for reduced token usage, lower API costs, and efficient GPU utilization for sustainable AI.</p>
+      <a href="#" class="tag text-xs hover:text-[var(--accent)] hover:border-[var(--accent)] transition-colors">GitHub ↗</a>
+    </div>
+
+    <div class="reveal proj-card p-5" style="transition-delay:0.05s">
+      <div class="flex justify-between items-start mb-3">
+        <span class="tag tag-accent">Ongoing</span>
+      </div>
+      <h3 class="font-semibold mb-2">FairAI</h3>
+      <p class="text-sm text-[var(--muted)] mb-3">Measuring bias and fairness in LLMs via human evaluation and prompt experiments to inform ethical AI design.</p>
+      <a href="#" class="tag text-xs hover:text-[var(--accent)] hover:border-[var(--accent)] transition-colors">GitHub ↗</a>
+    </div>
+
+    <div class="reveal proj-card p-5" style="transition-delay:0.1s">
+      <div class="flex justify-between items-start mb-3">
+        <span class="tag tag-accent">Ongoing</span>
+      </div>
+      <h3 class="font-semibold mb-2">SafeTalk</h3>
+      <p class="text-sm text-[var(--muted)] mb-3">Synthetic data pipelines with LLMs for cyberbullying detection to improve online safety and moderation.</p>
+      <a href="#" class="tag text-xs hover:text-[var(--accent)] hover:border-[var(--accent)] transition-colors">GitHub ↗</a>
+    </div>
+
+    <div class="reveal proj-card p-5" style="transition-delay:0.15s">
+      <div class="flex justify-between items-start mb-3">
+        <span class="tag">Completed</span>
+      </div>
+      <h3 class="font-semibold mb-2">EcoRover</h3>
+      <p class="text-sm text-[var(--muted)] mb-3">Semi-autonomous robotic rover with a 4-DOF arm for real-time waste classification on plastic, aluminum, and paper.</p>
+      <div class="flex gap-2 flex-wrap">
+        <a href="#" class="tag text-xs hover:text-[var(--accent)] hover:border-[var(--accent)] transition-colors">Video ↗</a>
+        <a href="#" class="tag text-xs hover:text-[var(--accent)] hover:border-[var(--accent)] transition-colors">GitHub ↗</a>
+      </div>
+    </div>
+
+    <div class="reveal proj-card p-5 md:col-span-2" style="transition-delay:0.2s">
+      <div class="flex justify-between items-start mb-3">
+        <span class="tag">Completed</span>
+      </div>
+      <h3 class="font-semibold mb-2">InsideOut</h3>
+      <p class="text-sm text-[var(--muted)] mb-3">Multiclass emotion recognition model focused on Bangladeshi users, tested on 30+ participants — promoting healthcare and human-centered AI applications.</p>
+      <div class="flex gap-2 flex-wrap">
+        <a href="#" class="tag text-xs hover:text-[var(--accent)] hover:border-[var(--accent)] transition-colors">Preprint ↗</a>
+        <a href="#" class="tag text-xs hover:text-[var(--accent)] hover:border-[var(--accent)] transition-colors">GitHub ↗</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="rule max-w-6xl mx-auto px-6 md:px-16" />
+
+<!-- SOFTWARE PROJECTS -->
+<section id="projects" class="py-20 px-6 md:px-16 max-w-6xl mx-auto">
+  <div class="reveal mb-10">
+    <span class="section-label">— 05</span>
+    <h2 class="serif text-4xl md:text-5xl mt-2">Software Projects</h2>
+  </div>
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+    <div class="reveal proj-card p-5 flex flex-col">
+      <h3 class="font-semibold text-base mb-2">Castpotro</h3>
+      <p class="text-sm text-[var(--muted)] flex-1 mb-3">Gamified e-learning platform with job placement and blockchain-based achievement verification.</p>
+      <div class="flex flex-wrap gap-1 mb-3">
+        <span class="tag">Next.js</span><span class="tag">Solidity</span><span class="tag">Prisma</span><span class="tag">MySQL</span>
+      </div>
+      <div class="flex gap-2">
+        <a href="#" class="tag text-xs hover:text-[var(--accent)] transition-colors">GitHub ↗</a>
+        <a href="#" class="tag text-xs hover:text-[var(--accent)] transition-colors">Video ↗</a>
+      </div>
+    </div>
+
+    <div class="reveal proj-card p-5 flex flex-col" style="transition-delay:0.05s">
+      <h3 class="font-semibold text-base mb-2">Blogpotro</h3>
+      <p class="text-sm text-[var(--muted)] flex-1 mb-3">Collaborative blogging platform with AI-powered content generation. Featured in Financial Express.</p>
+      <div class="flex flex-wrap gap-1 mb-3">
+        <span class="tag">Laravel</span><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">Google AI</span>
+      </div>
+      <div class="flex gap-2">
+        <a href="#" class="tag text-xs hover:text-[var(--accent)] transition-colors">GitHub ↗</a>
+        <a href="#" class="tag text-xs hover:text-[var(--accent)] transition-colors">Video ↗</a>
+      </div>
+    </div>
+
+    <div class="reveal proj-card p-5 flex flex-col" style="transition-delay:0.1s">
+      <h3 class="font-semibold text-base mb-2">ShikhaChain</h3>
+      <p class="text-sm text-[var(--muted)] flex-1 mb-3">Blockchain certificate verification system with multi-layer security and smart contracts. Accepted to Blockchain Olympiad Bangladesh.</p>
+      <div class="flex flex-wrap gap-1 mb-3">
+        <span class="tag">Solidity</span><span class="tag">Ethereum</span><span class="tag">React</span>
+      </div>
+      <div class="flex gap-2">
+        <a href="#" class="tag text-xs hover:text-[var(--accent)] transition-colors">GitHub ↗</a>
+        <a href="#" class="tag text-xs hover:text-[var(--accent)] transition-colors">Video ↗</a>
+      </div>
+    </div>
+
+    <div class="reveal proj-card p-5 flex flex-col" style="transition-delay:0.15s">
+      <h3 class="font-semibold text-base mb-2">UniSales</h3>
+      <p class="text-sm text-[var(--muted)] flex-1 mb-3">B2B supply chain platform connecting farmers and companies for transparent agro-business produce exchange.</p>
+      <div class="flex flex-wrap gap-1 mb-3">
+        <span class="tag">PHP</span><span class="tag">JavaScript</span><span class="tag">MySQL</span>
+      </div>
+      <div class="flex gap-2">
+        <a href="#" class="tag text-xs hover:text-[var(--accent)] transition-colors">GitHub ↗</a>
+        <a href="#" class="tag text-xs hover:text-[var(--accent)] transition-colors">Video ↗</a>
+      </div>
+    </div>
+
+    <div class="reveal proj-card p-5 flex flex-col" style="transition-delay:0.2s">
+      <h3 class="font-semibold text-base mb-2">UIU Platformer</h3>
+      <p class="text-sm text-[var(--muted)] flex-1 mb-3">2D interactive onboarding game helping freshers explore campus facilities. Tested by 20+ students.</p>
+      <div class="flex flex-wrap gap-1 mb-3">
+        <span class="tag">Java</span><span class="tag">JavaFX</span><span class="tag">Oracle</span>
+      </div>
+      <div class="flex gap-2">
+        <a href="#" class="tag text-xs hover:text-[var(--accent)] transition-colors">GitHub ↗</a>
+        <a href="#" class="tag text-xs hover:text-[var(--accent)] transition-colors">Video ↗</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="rule max-w-6xl mx-auto px-6 md:px-16" />
+
+<!-- SKILLS -->
+<section id="skills" class="py-20 px-6 md:px-16 max-w-6xl mx-auto">
+  <div class="reveal mb-10">
+    <span class="section-label">— 06</span>
+    <h2 class="serif text-4xl md:text-5xl mt-2">Technical Skills</h2>
+  </div>
+  <div class="grid md:grid-cols-2 gap-10">
+
+    <div class="reveal">
+      <span class="section-label block mb-4">Languages</span>
+      <div class="space-y-4">
+        <div class="skill-item" data-level="85">
+          <div class="flex justify-between mb-1 text-sm"><span>Python</span><span class="mono text-[var(--muted)]">85%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+        </div>
+        <div class="skill-item" data-level="75">
+          <div class="flex justify-between mb-1 text-sm"><span>C / C++</span><span class="mono text-[var(--muted)]">75%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+        </div>
+        <div class="skill-item" data-level="70">
+          <div class="flex justify-between mb-1 text-sm"><span>Java</span><span class="mono text-[var(--muted)]">70%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+        </div>
+        <div class="skill-item" data-level="65">
+          <div class="flex justify-between mb-1 text-sm"><span>JavaScript / PHP</span><span class="mono text-[var(--muted)]">65%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal" style="transition-delay:0.1s">
+      <span class="section-label block mb-4">ML & AI</span>
+      <div class="space-y-4">
+        <div class="skill-item" data-level="80">
+          <div class="flex justify-between mb-1 text-sm"><span>PyTorch / NumPy / Pandas</span><span class="mono text-[var(--muted)]">80%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+        </div>
+        <div class="skill-item" data-level="85">
+          <div class="flex justify-between mb-1 text-sm"><span>Prompt Engineering</span><span class="mono text-[var(--muted)]">85%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+        </div>
+        <div class="skill-item" data-level="70">
+          <div class="flex justify-between mb-1 text-sm"><span>Data Annotation</span><span class="mono text-[var(--muted)]">70%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal" style="transition-delay:0.15s">
+      <span class="section-label block mb-4">Web & Tools</span>
+      <div class="flex flex-wrap gap-2">
+        <span class="tag">Next.js</span><span class="tag">Laravel</span><span class="tag">Tailwind</span>
+        <span class="tag">Supabase</span><span class="tag">Docker</span><span class="tag">Vercel</span>
+        <span class="tag">Git / GitHub</span><span class="tag">Postman</span>
+      </div>
+    </div>
+
+    <div class="reveal" style="transition-delay:0.2s">
+      <span class="section-label block mb-4">Hardware & Platforms</span>
+      <div class="flex flex-wrap gap-2">
+        <span class="tag">Linux</span><span class="tag">Raspberry Pi</span>
+        <span class="tag">ESP32</span><span class="tag">Arduino</span>
+        <span class="tag">Android Studio</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="rule max-w-6xl mx-auto px-6 md:px-16" />
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements" class="py-20 px-6 md:px-16 max-w-6xl mx-auto">
+  <div class="reveal mb-10">
+    <span class="section-label">— 07</span>
+    <h2 class="serif text-4xl md:text-5xl mt-2">Achievements</h2>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-4 mb-12">
+    <div class="reveal proj-card p-5 border-l-4" style="border-left-color: var(--accent)">
+      <span class="tag tag-accent mb-3 block w-fit">🏆 Champion</span>
+      <h3 class="font-semibold">On-Campus Hult Prize</h3>
+      <p class="text-sm text-[var(--muted)]">Social Entrepreneurship Competition — 2026</p>
+    </div>
+    <div class="reveal proj-card p-5 border-l-4" style="border-left-color: var(--accent); transition-delay:0.05s">
+      <span class="tag tag-accent mb-3 block w-fit">🥈 Finalist</span>
+      <h3 class="font-semibold">National Blockchain Olympiad Bangladesh</h3>
+      <p class="text-sm text-[var(--muted)]">2025</p>
+    </div>
+  </div>
+
+  <!-- CSE Awards -->
+  <div class="reveal mb-10">
+    <span class="section-label block mb-4">CSE Project Show Awards (UIU)</span>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm border-collapse">
+        <thead>
+          <tr class="border-b border-[var(--line)]">
+            <th class="text-left py-2 pr-6 mono text-xs text-[var(--muted)] font-normal">Course</th>
+            <th class="text-left py-2 pr-6 mono text-xs text-[var(--muted)] font-normal">Award</th>
+            <th class="text-left py-2 mono text-xs text-[var(--muted)] font-normal">Semester</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-[var(--line)] hover:bg-[var(--card)] transition-colors">
+            <td class="py-2 pr-6">Database Management Systems Poster</td>
+            <td class="py-2 pr-6 text-[var(--accent)]">1st Runner-Up</td>
+            <td class="py-2 mono text-xs text-[var(--muted)]">Fall 2023</td>
+          </tr>
+          <tr class="border-b border-[var(--line)] hover:bg-[var(--card)] transition-colors">
+            <td class="py-2 pr-6">Database Management Systems</td>
+            <td class="py-2 pr-6 text-[var(--muted)]">4th Runner-Up</td>
+            <td class="py-2 mono text-xs text-[var(--muted)]">Fall 2023</td>
+          </tr>
+          <tr class="border-b border-[var(--line)] hover:bg-[var(--card)] transition-colors">
+            <td class="py-2 pr-6">System Analysis and Design</td>
+            <td class="py-2 pr-6 text-[var(--accent)]">2nd Runner-Up</td>
+            <td class="py-2 mono text-xs text-[var(--muted)]">Summer 2024</td>
+          </tr>
+          <tr class="border-b border-[var(--line)] hover:bg-[var(--card)] transition-colors">
+            <td class="py-2 pr-6">Advanced Object-Oriented Programming</td>
+            <td class="py-2 pr-6 text-[var(--accent)]">2nd Runner-Up</td>
+            <td class="py-2 mono text-xs text-[var(--muted)]">Fall 2024</td>
+          </tr>
+          <tr class="hover:bg-[var(--card)] transition-colors">
+            <td class="py-2 pr-6">Software Engineering</td>
+            <td class="py-2 pr-6 text-[var(--muted)]">4th Runner-Up</td>
+            <td class="py-2 mono text-xs text-[var(--muted)]">Fall 2025</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Scholarships & Certs -->
+  <div class="grid md:grid-cols-2 gap-8">
+    <div class="reveal">
+      <span class="section-label block mb-4">Academic Scholarships</span>
+      <div class="space-y-3">
+        <div class="flex items-center justify-between border-b border-[var(--line)] pb-2">
+          <span class="text-sm">50% Tuition Scholarship</span>
+          <span class="tag">× 7 Times</span>
+        </div>
+        <div class="flex items-center justify-between border-b border-[var(--line)] pb-2">
+          <span class="text-sm">25% Tuition Scholarship</span>
+          <span class="tag">× 3 Times</span>
+        </div>
+      </div>
+    </div>
+    <div class="reveal" style="transition-delay:0.1s">
+      <span class="section-label block mb-4">Online Certifications</span>
+      <div class="space-y-3">
+        <div class="flex items-start gap-3 border-b border-[var(--line)] pb-2">
+          <span class="text-[var(--accent)] mt-0.5">→</span>
+          <div>
+            <div class="text-sm font-medium">Machine Learning Specialization</div>
+            <div class="text-xs text-[var(--muted)]">Stanford University — 2024</div>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 border-b border-[var(--line)] pb-2">
+          <span class="text-[var(--accent)] mt-0.5">→</span>
+          <div>
+            <div class="text-sm font-medium">Git & GitHub Specialization</div>
+            <div class="text-xs text-[var(--muted)]">Google — 2024</div>
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="text-[var(--accent)] mt-0.5">→</span>
+          <div>
+            <div class="text-sm font-medium">Raspberry Pi Training</div>
+            <div class="text-xs text-[var(--muted)]">NASBA — 2025</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule max-w-6xl mx-auto px-6 md:px-16" />
+
+<!-- LEADERSHIP -->
+<section class="py-20 px-6 md:px-16 max-w-6xl mx-auto">
+  <div class="reveal mb-10">
+    <span class="section-label">— 08</span>
+    <h2 class="serif text-4xl md:text-5xl mt-2">Leadership</h2>
+  </div>
+  <div class="grid md:grid-cols-2 gap-4">
+
+    <div class="reveal proj-card p-5">
+      <span class="tag tag-accent mb-3 block w-fit">Founder & Lead</span>
+      <h3 class="font-semibold mb-1">Castpotro Community</h3>
+      <p class="text-sm text-[var(--muted)]">Built and scaled a 3,000+ member Discord learning community; led 10 members and organized 30+ events. Achieved 20% growth in engagement.</p>
+    </div>
+
+    <div class="reveal proj-card p-5" style="transition-delay:0.05s">
+      <span class="tag mb-3 block w-fit">Instructor</span>
+      <h3 class="font-semibold mb-1">UIU Computer Club — ML Sessions</h3>
+      <p class="text-sm text-[var(--muted)]">Delivered beginner-focused Machine Learning sessions; mentored 30+ students in launching their first ML projects.</p>
+    </div>
+
+    <div class="reveal proj-card p-5" style="transition-delay:0.1s">
+      <span class="tag mb-3 block w-fit">Organizer</span>
+      <h3 class="font-semibold mb-1">Leadership Workshop</h3>
+      <p class="text-sm text-[var(--muted)]">Coordinated a workshop with 50+ global participants focused on leadership, collaboration, and communication skills.</p>
+    </div>
+
+    <div class="reveal proj-card p-5" style="transition-delay:0.15s">
+      <span class="tag mb-3 block w-fit">Volunteer</span>
+      <h3 class="font-semibold mb-1">Damla Project & Ummah Appeal</h3>
+      <p class="text-sm text-[var(--muted)]">Contributed to education and humanitarian initiatives through community outreach, event coordination, and learning programs.</p>
+    </div>
+
+  </div>
+</section>
+
+<hr class="rule max-w-6xl mx-auto px-6 md:px-16" />
+
+<!-- CONTACT -->
+<section id="contact" class="py-20 px-6 md:px-16 max-w-6xl mx-auto">
+  <div class="reveal mb-10">
+    <span class="section-label">— 09</span>
+    <h2 class="serif text-4xl md:text-5xl mt-2">Get in Touch</h2>
+  </div>
+  <div class="grid md:grid-cols-2 gap-12">
+    <div class="reveal">
+      <p class="text-[var(--muted)] mb-6">Interested in research collaboration, opportunities, or just a conversation about AI and technology? Feel free to reach out.</p>
+      <div class="space-y-3">
+        <div class="flex items-center gap-3">
+          <span class="mono text-xs text-[var(--muted)] w-16">Email</span>
+          <a href="mailto:afarabi221266@bscse.uiu.ac.bd" class="text-sm hover:text-[var(--accent)] transition-colors">afarabi221266@bscse.uiu.ac.bd</a>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="mono text-xs text-[var(--muted)] w-16">Phone</span>
+          <span class="text-sm">+8801799527742</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="mono text-xs text-[var(--muted)] w-16">Location</span>
+          <span class="text-sm">Uttara Model Town, Dhaka, Bangladesh</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- References -->
+    <div class="reveal" style="transition-delay:0.1s">
+      <span class="section-label block mb-4">References</span>
+      <div class="space-y-4">
+        <div class="border-b border-[var(--line)] pb-4">
+          <div class="font-semibold text-sm">Dr. Muhammad Nomani Kabir</div>
+          <div class="text-xs text-[var(--muted)] mb-1">Thesis Supervisor & Professor — CSE, UIU</div>
+          <a href="mailto:kabir@cse.uiu.ac.bd" class="mono text-xs hover:text-[var(--accent)] transition-colors">kabir@cse.uiu.ac.bd</a>
+        </div>
+        <div>
+          <div class="font-semibold text-sm">Md. Tarek Hasan</div>
+          <div class="text-xs text-[var(--muted)] mb-1">Assistant Professor & UG Program Coordinator — CSE, UIU · Former SE, Samsung R&D</div>
+          <a href="mailto:tarek@cse.uiu.ac.bd" class="mono text-xs hover:text-[var(--accent)] transition-colors">tarek@cse.uiu.ac.bd</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-[var(--line)] py-6 px-6 md:px-16 max-w-6xl mx-auto">
+  <div class="flex flex-wrap justify-between items-center gap-4">
+    <span class="mono text-xs text-[var(--muted)]">© 2026 Ahsan Farabi</span>
+    <div class="flex flex-wrap gap-4">
+      <a href="#" class="mono text-xs text-[var(--muted)] hover:text-[var(--accent)] transition-colors">GitHub</a>
+      <a href="#" class="mono text-xs text-[var(--muted)] hover:text-[var(--accent)] transition-colors">LinkedIn</a>
+      <a href="#" class="mono text-xs text-[var(--muted)] hover:text-[var(--accent)] transition-colors">Google Scholar</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Load hero photo — paste your base64 or URL here
+  // To use your own photo: set the src of #hero-photo to your image path or base64
+  // e.g. document.getElementById('hero-photo').src = 'your-photo.png';
+
+  // Custom cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursor-ring');
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+    setTimeout(() => {
+      ring.style.left = e.clientX + 'px';
+      ring.style.top = e.clientY + 'px';
+    }, 80);
+  });
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.transform = 'translate(-50%,-50%) scale(2)';
+      ring.style.width = '52px'; ring.style.height = '52px'; ring.style.opacity = '0.3';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.transform = 'translate(-50%,-50%) scale(1)';
+      ring.style.width = '36px'; ring.style.height = '36px'; ring.style.opacity = '0.5';
+    });
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Skill bars
+  const barObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const fills = e.target.querySelectorAll('.skill-bar-fill');
+        const items = e.target.querySelectorAll('.skill-item');
+        items.forEach(item => {
+          const level = item.dataset.level;
+          const fill = item.querySelector('.skill-bar-fill');
+          if (fill) fill.style.width = level + '%';
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('#skills .reveal').forEach(el => barObserver.observe(el));
+
+  // Mobile burger
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  burger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  });
+
+  // Active nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 80) current = s.id;
+    });
+    navLinks.forEach(l => {
+      l.classList.toggle('active', l.getAttribute('href') === '#' + current);
+    });
+  });
+</script>
+</body>
+</html>
