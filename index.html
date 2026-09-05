@@ -4,8 +4,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahsan Farabi | Portfolio</title>
-    <meta name="description" content="Portfolio of Ahsan Farabi - AI Researcher & App Developer focusing on VLMs, LLMs, HCI, AI Safety, and Environmental Sustainability.">
+    <title>Ahsan Farabi | AI Researcher & App Developer</title>
+    <meta name="description" content="Portfolio of Ahsan Farabi - AI Researcher & App Developer focusing on Natural Language Processing, Vision Language Models, Green AI, Responsible AI, Human–Computer Interaction, and IoT.">
+    <meta name="author" content="Ahsan Farabi">
+    <meta name="keywords" content="Ahsan Farabi, AI Researcher, App Developer, Natural Language Processing, Vision Language Model, Green AI, Responsible AI, Human–Computer Interaction, IoT, Machine Learning, UIU, Dhaka, Bangladesh, TheAhsanFarabi">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#1e1e1e">
+    <link rel="canonical" href="https://theahsanfarabi.github.io/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="assets/dp.jpeg">
+    <link rel="apple-touch-icon" href="assets/dp.jpeg">
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://theahsanfarabi.github.io/">
+    <meta property="og:title" content="Ahsan Farabi | AI Researcher & App Developer">
+    <meta property="og:description" content="Portfolio of Ahsan Farabi - AI Researcher & App Developer specializing in Natural Language Processing, Vision Language Models, Green AI, Responsible AI, Human–Computer Interaction, and IoT.">
+    <meta property="og:image" content="https://theahsanfarabi.github.io/assets/dp.jpeg">
+    <meta property="og:site_name" content="Ahsan Farabi Portfolio">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://theahsanfarabi.github.io/">
+    <meta name="twitter:title" content="Ahsan Farabi | AI Researcher & App Developer">
+    <meta name="twitter:description" content="Portfolio of Ahsan Farabi - AI Researcher & App Developer specializing in Natural Language Processing, Vision Language Models, Green AI, Responsible AI, Human–Computer Interaction, and IoT.">
+    <meta name="twitter:image" content="https://theahsanfarabi.github.io/assets/dp.jpeg">
+
+    <!-- Structured Data (JSON-LD) for Search Engines & Scholar Indexing -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ahsan Farabi",
+      "url": "https://theahsanfarabi.github.io/",
+      "image": "https://theahsanfarabi.github.io/assets/dp.jpeg",
+      "jobTitle": "AI Researcher & App Developer",
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "United International University"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Dhaka",
+        "addressCountry": "Bangladesh"
+      },
+      "email": "mailto:ahsanfarabi1971@gmail.com",
+      "sameAs": [
+        "https://github.com/TheAhsanFarabi",
+        "https://www.linkedin.com/in/ahsanfarabi/",
+        "https://scholar.google.com/citations?user=YYXPe_sAAAAJ",
+        "https://orcid.org/0009-0004-5068-4452",
+        "https://www.researchgate.net/profile/Ahsan-Farabi"
+      ],
+      "knowsAbout": [
+        "Artificial Intelligence",
+        "Natural Language Processing",
+        "Vision Language Models",
+        "Green AI",
+        "Responsible AI",
+        "Human–Computer Interaction",
+        "Internet of Things",
+        "Computer Vision",
+        "Machine Learning"
+      ]
+    }
+    </script>
+
     <link rel="stylesheet" href="styles.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=VT323&display=swap" rel="stylesheet">
@@ -16,13 +81,32 @@
 
 <body>
 
-   
-        
-        <!-- Theme Toggle Button -->
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark theme">
-            <i class="fas fa-sun"></i>
-            <i class="fas fa-moon"></i>
-        </button>
+    <!-- TOP NAVBAR -->
+    <header class="top-navbar">
+        <div class="navbar-container">
+            <a href="#about" class="navbar-brand">
+                <span class="brand-bracket">&gt;</span> AHSAN FARABI
+            </a>
+
+            <nav class="navbar-menu" aria-label="Main Navigation">
+                <ul class="navbar-nav">
+                    <li><a href="#about" class="nav-link"><i class="fas fa-user"></i> <span>About</span></a></li>
+                    <li><a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> <span>Education</span></a></li>
+                    <li><a href="#research" class="nav-link"><i class="fas fa-flask"></i> <span>Research</span></a></li>
+                    <li><a href="#experience" class="nav-link"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
+                    <li><a href="#projects" class="nav-link"><i class="fas fa-code-branch"></i> <span>Projects</span></a></li>
+                    <li><a href="#achievements" class="nav-link"><i class="fas fa-trophy"></i> <span>Achievements</span></a></li>
+                    <li><a href="#skills" class="nav-link"><i class="fas fa-tools"></i> <span>Skills</span></a></li>
+                </ul>
+            </nav>
+
+            <div class="navbar-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark theme">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
     </header>
 
     <div id="app" class="portfolio-container">
@@ -41,11 +125,11 @@
                 </p>
 
                 <div class="social-links">
-                    <a href="mailto:afarabi221266@bscse.uiu.ac.bd" title="Email" target="_blank"><i class="fas fa-envelope"></i></a>
-                    <a href="#" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="#" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" title="Google Scholar" target="_blank"><i class="fas fa-graduation-cap"></i></a>
-                    <a href="#" title="ORCID" target="_blank"><i class="fab fa-orcid"></i></a>
+                    <a href="mailto:ahsanfarabi1971@gmail.com" title="Email" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
+                    <a href="https://github.com/TheAhsanFarabi" title="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/ahsanfarabi/" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://scholar.google.com/citations?user=YYXPe_sAAAAJ" title="Google Scholar" target="_blank" rel="noopener noreferrer"><i class="fas fa-graduation-cap"></i></a>
+                    <a href="https://orcid.org/0009-0004-5068-4452" title="ORCID" target="_blank" rel="noopener noreferrer"><i class="fab fa-orcid"></i></a>
                 </div>
 
                 <div class="cv-download-container">
@@ -54,8 +138,6 @@
                     </a>
                 </div>
             </div>
-
-
         </aside>
 
         <!-- MAIN CONTENT -->
@@ -67,14 +149,63 @@
                     <p class="bio-text">
                         I am a Computer Science and Engineering (CSE) graduate deeply passionate about artificial intelligence and software development. With hands-on experience utilizing modern technologies, I specialize in building intuitive, human-centered applications that solve real-world problems. Currently, I am actively pursuing opportunities as a Research Assistant and Lecturer to further my academic and professional journey.
                     </p>
-                    <p class="bio-text">
-                        <strong>Research Interests:</strong>
+                    <p class="bio-text" style="margin-top: 20px;">
+                        <strong>Research Interests:</strong> <span class="interest-instruction"><i class="fas fa-hand-pointer"></i> (Hover for definition)</span>
                     </p>
-                    <div class="skill-tags" style="margin-top: 15px; margin-bottom: 25px;">
-                        <span class="skill-tag" style="font-size: 0.95rem; padding: 10px 15px;"><i class="fas fa-brain"></i> VLMs & LLMs</span>
-                        <span class="skill-tag" style="font-size: 0.95rem; padding: 10px 15px;"><i class="fas fa-users"></i> Human–Computer Interaction (HCI)</span>
-                        <span class="skill-tag" style="font-size: 0.95rem; padding: 10px 15px;"><i class="fas fa-shield-alt"></i> AI Safety</span>
-                        <span class="skill-tag" style="font-size: 0.95rem; padding: 10px 15px;"><i class="fas fa-leaf"></i> Environmental Sustainability</span>
+                    <div class="research-interests-list">
+                        <!-- 1. Natural Language Processing -->
+                        <div class="research-interest-item" tabindex="0" role="button" aria-label="Natural Language Processing research interest">
+                            <span class="interest-badge"><i class="fas fa-comments"></i> Natural Language Processing</span>
+                            <div class="interest-popover" role="tooltip">
+                                <div class="popover-header"><i class="fas fa-terminal"></i> NLP // DEFINITION</div>
+                                <p class="popover-body">Computational techniques enabling machines to understand, interpret, synthesize, and generate human language in text and speech.</p>
+                            </div>
+                        </div>
+
+                        <!-- 2. Vision Language Model -->
+                        <div class="research-interest-item" tabindex="0" role="button" aria-label="Vision Language Model research interest">
+                            <span class="interest-badge"><i class="fas fa-eye"></i> Vision Language Model</span>
+                            <div class="interest-popover" role="tooltip">
+                                <div class="popover-header"><i class="fas fa-terminal"></i> VLM // DEFINITION</div>
+                                <p class="popover-body">Multimodal architectures combining computer vision and natural language processing to comprehend, align, and reason over visual and textual data jointly.</p>
+                            </div>
+                        </div>
+
+                        <!-- 3. Green AI -->
+                        <div class="research-interest-item" tabindex="0" role="button" aria-label="Green AI research interest">
+                            <span class="interest-badge"><i class="fas fa-leaf"></i> Green AI</span>
+                            <div class="interest-popover" role="tooltip">
+                                <div class="popover-header"><i class="fas fa-terminal"></i> GREEN AI // DEFINITION</div>
+                                <p class="popover-body">Sustainable AI development focusing on energy-efficient computation, model distillation, parameter-efficient fine-tuning, and minimizing carbon footprints.</p>
+                            </div>
+                        </div>
+
+                        <!-- 4. Responsible AI -->
+                        <div class="research-interest-item" tabindex="0" role="button" aria-label="Responsible AI research interest">
+                            <span class="interest-badge"><i class="fas fa-shield-alt"></i> Responsible AI</span>
+                            <div class="interest-popover" role="tooltip">
+                                <div class="popover-header"><i class="fas fa-terminal"></i> RESPONSIBLE AI // DEFINITION</div>
+                                <p class="popover-body">Frameworks and methodologies that ensure artificial intelligence systems are fair, transparent, accountable, privacy-preserving, and ethically aligned.</p>
+                            </div>
+                        </div>
+
+                        <!-- 5. Human–Computer Interaction -->
+                        <div class="research-interest-item" tabindex="0" role="button" aria-label="Human–Computer Interaction research interest">
+                            <span class="interest-badge"><i class="fas fa-users"></i> Human–Computer Interaction</span>
+                            <div class="interest-popover" role="tooltip">
+                                <div class="popover-header"><i class="fas fa-terminal"></i> HCI // DEFINITION</div>
+                                <p class="popover-body">The study and design of intuitive, accessible, and user-centric interfaces facilitating seamless collaboration between people and computational systems.</p>
+                            </div>
+                        </div>
+
+                        <!-- 6. IoT -->
+                        <div class="research-interest-item" tabindex="0" role="button" aria-label="IoT research interest">
+                            <span class="interest-badge"><i class="fas fa-network-wired"></i> IoT</span>
+                            <div class="interest-popover" role="tooltip">
+                                <div class="popover-header"><i class="fas fa-terminal"></i> IOT // DEFINITION</div>
+                                <p class="popover-body">Interconnected networks of physical smart devices, microcontrollers, and sensors collecting, exchanging, and acting upon real-world physical data.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -83,39 +214,63 @@
             <section id="education" class="content-section">
                 <h2 class="section-title">Education</h2>
                 <div class="timeline">
+                    <!-- Education 1: UIU -->
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
+                        <div class="timeline-date">2022 — 2026</div>
                         <div class="timeline-content">
-                            <h3 class="timeline-title">B.Sc. in Computer Science & Engineering, Major: Data Science</h3>
-                            <div class="timeline-meta">
-                                <span class="timeline-org">United International University, Dhaka, Bangladesh</span>
-                                <span class="timeline-date">2022 — 2026</span>
+                            <div class="timeline-header">
+                                <h3 class="role-title">B.Sc. in Computer Science & Engineering</h3>
+                                <a href="https://www.uiu.ac.bd/" target="_blank" rel="noopener noreferrer" class="org-name company-link">
+                                    United International University <i class="fas fa-external-link-alt"></i>
+                                </a>
                             </div>
-                            <p class="timeline-desc"><strong>CGPA:</strong> 3.88/4.00</p>
+                            <span class="location-tag"><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh &bull; Major: Data Science</span>
+                            <div class="assigned-project-box">
+                                <span class="project-pill-label"><i class="fas fa-graduation-cap"></i> Academic Standing:</span>
+                                <div class="assigned-project-pills">
+                                    <span class="assigned-pill">CGPA: 3.88 / 4.00</span>
+                                    <span class="assigned-pill">Major CGPA: 4.00 / 4.00</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
+                    <!-- Education 2: Uttara Model College -->
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
+                        <div class="timeline-date">2018 — 2020</div>
                         <div class="timeline-content">
-                            <h3 class="timeline-title">Higher Secondary Certificate (HSC), Group: Science</h3>
-                            <div class="timeline-meta">
-                                <span class="timeline-org">Uttara Model College, Dhaka, Bangladesh</span>
-                                <span class="timeline-date">2018 — 2020</span>
+                            <div class="timeline-header">
+                                <h3 class="role-title">Higher Secondary Certificate (HSC)</h3>
+                                <span class="org-name">Uttara Model College</span>
                             </div>
-                            <p class="timeline-desc"><strong>GPA:</strong> 5.00/5.00</p>
+                            <span class="location-tag"><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh &bull; Group: Science</span>
+                            <div class="assigned-project-box">
+                                <span class="project-pill-label"><i class="fas fa-graduation-cap"></i> Academic Result:</span>
+                                <div class="assigned-project-pills">
+                                    <span class="assigned-pill">GPA: 5.00 / 5.00</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
+                    <!-- Education 3: Uttara Model School -->
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
+                        <div class="timeline-date">2016 — 2018</div>
                         <div class="timeline-content">
-                            <h3 class="timeline-title">Secondary School Certificate (SSC), Group: Science</h3>
-                            <div class="timeline-meta">
-                                <span class="timeline-org">Uttara Model School, Dhaka, Bangladesh</span>
-                                <span class="timeline-date">2016 — 2018</span>
+                            <div class="timeline-header">
+                                <h3 class="role-title">Secondary School Certificate (SSC)</h3>
+                                <span class="org-name">Uttara Model School</span>
                             </div>
-                            <p class="timeline-desc"><strong>GPA:</strong> 5.00/5.00</p>
+                            <span class="location-tag"><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh &bull; Group: Science</span>
+                            <div class="assigned-project-box">
+                                <span class="project-pill-label"><i class="fas fa-graduation-cap"></i> Academic Result:</span>
+                                <div class="assigned-project-pills">
+                                    <span class="assigned-pill">GPA: 5.00 / 5.00</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -133,57 +288,216 @@
                 </div>
 
                 <div class="publications-list">
-                    <div class="pub-item" data-category="journal">
-                        <div class="pub-content">
-                            <h3 class="pub-title">WADE: A Waste Annotation Reasoning-Chain Dataset and Distillation Framework for Low-Resource Vision-Language Models</h3>
-                            <span class="status-btn submitted">Submitted</span>
-                            <p class="pub-authors">Supervised By: Dr. Muhammad Nomani Kabir</p>
-                            <p class="pub-venue"><em>Engineering Applications of Artificial Intelligence (EAAI), Elsevier — Undergraduate Thesis</em></p>
-                            <p style="margin-top: 10px; color: var(--text-secondary);">Developed a multimodal dataset of 2,167 in-situ images with 13,608 annotations and fine-tuned a Vision-Language Model to improve domain-specific waste perception.</p>
+                    <!-- Paper 1: WADE -->
+                    <div class="pub-item" data-category="journal" tabindex="0" role="button" aria-label="Click to flip for paper abstract">
+                        <div class="pub-card-inner">
+                            <div class="pub-card-front">
+                                <div class="pub-publisher-logo">
+                                    <img src="assets/publisher_icon/EAAI.png" alt="EAAI Elsevier" class="pub-icon-img">
+                                </div>
+                                <div class="pub-content">
+                                    <div class="pub-header-row">
+                                        <span class="status-btn underreview">Under Review</span>
+                                        <span class="flip-hint"><i class="fas fa-sync-alt"></i> Flip for Abstract</span>
+                                    </div>
+                                    <h3 class="pub-title">WADE: A Waste Annotation Reasoning-Chain Dataset and Distillation Framework for Low-Resource Vision-Language Models</h3>
+                                    <p class="pub-authors">Supervised By: Dr. Muhammad Nomani Kabir</p>
+                                    <p class="pub-venue"><em>Engineering Applications of Artificial Intelligence (EAAI), Elsevier — Undergraduate Thesis</em></p>
+                                    <div class="pub-links">
+                                        <span class="pub-link disabled"><i class="fas fa-clock"></i> Paper (Coming Soon)</span>
+                                        <a href="https://github.com/TheAhsanFarabi/WADE" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fab fa-github"></i> Code</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pub-card-back">
+                                <div class="pub-back-header">
+                                    <span class="pub-back-tag"><i class="fas fa-file-alt"></i> Abstract & Summary</span>
+                                    <span class="flip-hint"><i class="fas fa-undo"></i> Flip Back</span>
+                                </div>
+                                <h4 class="pub-back-title">WADE: A Waste Annotation Reasoning-Chain Dataset and Distillation Framework for Low-Resource Vision-Language Models</h4>
+                                <p class="pub-desc">Developed a multimodal dataset comprising 2,167 in-situ images with 13,608 annotations and fine-tuned an open-source Vision-Language Model using QLoRA to improve domain-specific waste perception and reduce hallucinations in aquatic environments.</p>
+                                <div class="pub-links">
+                                    <span class="pub-link disabled"><i class="fas fa-clock"></i> Paper (Coming Soon)</span>
+                                    <a href="https://github.com/TheAhsanFarabi/WADE" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fab fa-github"></i> Code</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="pub-item" data-category="conference">
-                        <div class="pub-content">
-                            <h3 class="pub-title">GreenSwap: Verb Choice or Output Length? A Controlled Decomposition of Prompt-Level Energy Savings in LLM Inference</h3>
-                            <span class="status-btn underreview">Under Review</span>
-                            <p class="pub-authors">Supervised By: Shahriar Mahmud</p>
-                            <p class="pub-venue"><em>Empirical Methods in Natural Language Processing (EMNLP)</em></p>
-                            <p style="margin-top: 10px; color: var(--text-secondary);">Tested whether changing prompt wording or limiting response length saves more energy during inference, concluding that concise answers are more energy-efficient and yield better quality.</p>
+                    <!-- Paper 2: GreenSwap -->
+                    <div class="pub-item" data-category="conference" tabindex="0" role="button" aria-label="Click to flip for paper abstract">
+                        <div class="pub-card-inner">
+                            <div class="pub-card-front">
+                                <div class="pub-publisher-logo">
+                                    <img src="assets/publisher_icon/emnlp2026.png" alt="EMNLP 2026" class="pub-icon-img">
+                                </div>
+                                <div class="pub-content">
+                                    <div class="pub-header-row">
+                                        <span class="status-btn accepted">Accepted</span>
+                                        <span class="flip-hint"><i class="fas fa-sync-alt"></i> Flip for Abstract</span>
+                                    </div>
+                                    <h3 class="pub-title">GreenSwap: Verb Choice or Output Length? A Controlled Decomposition of Prompt-Level Energy Savings in LLM Inference</h3>
+                                    <p class="pub-authors">Supervised By: Shahriar Mahmud</p>
+                                    <p class="pub-venue"><em>Empirical Methods in Natural Language Processing (EMNLP 2026, Main Conference)</em></p>
+                                    <div class="pub-links">
+                                        <span class="pub-link disabled"><i class="fas fa-clock"></i> Paper (Coming Soon)</span>
+                                        <a href="https://github.com/TheAhsanFarabi/GreenSwap" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fab fa-github"></i> Code</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pub-card-back">
+                                <div class="pub-back-header">
+                                    <span class="pub-back-tag"><i class="fas fa-file-alt"></i> Abstract & Summary</span>
+                                    <span class="flip-hint"><i class="fas fa-undo"></i> Flip Back</span>
+                                </div>
+                                <h4 class="pub-back-title">GreenSwap: Verb Choice or Output Length? A Controlled Decomposition of Prompt-Level Energy Savings in LLM Inference</h4>
+                                <p class="pub-desc">Tested whether changing prompt wording or limiting response length saves more energy during LLM inference across 21,600 test runs, concluding that concise answers are more energy-efficient and yield higher output quality than lexical substitutions.</p>
+                                <div class="pub-links">
+                                    <span class="pub-link disabled"><i class="fas fa-clock"></i> Paper (Coming Soon)</span>
+                                    <a href="https://github.com/TheAhsanFarabi/GreenSwap" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fab fa-github"></i> Code</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="pub-item" data-category="conference">
-                        <div class="pub-content">
-                            <h3 class="pub-title">EcoDetect: Lightweight Real-Time Recyclable Waste Detection Using YOLOv11n Trained on LLM-Guided Synthetic Data</h3>
-                            <span class="status-btn published">Published</span>
-                            <p class="pub-authors">Supervised By: Md. Tanvir Raihan</p>
-                            <p class="pub-venue"><em>International Conference on Computer and Information Technology (ICCIT), IEEE Xplore</em></p>
-                            <p style="margin-top: 10px; color: var(--text-secondary);">Used AI-generated synthetic images to train a lightweight waste detection model, bypassing manual data collection while achieving 81.1% mAP on real-world tests.</p>
+                    <!-- Paper 3: EcoDetect -->
+                    <div class="pub-item" data-category="conference" tabindex="0" role="button" aria-label="Click to flip for paper abstract">
+                        <div class="pub-card-inner">
+                            <div class="pub-card-front">
+                                <div class="pub-publisher-logo">
+                                    <img src="assets/publisher_icon/iccit2025.jpeg" alt="ICCIT IEEE Xplore" class="pub-icon-img">
+                                </div>
+                                <div class="pub-content">
+                                    <div class="pub-header-row">
+                                        <span class="status-btn published">Published</span>
+                                        <span class="flip-hint"><i class="fas fa-sync-alt"></i> Flip for Abstract</span>
+                                    </div>
+                                    <h3 class="pub-title">EcoDetect: Lightweight Real-Time Recyclable Waste Detection Using YOLOv11n Trained on LLM-Guided Synthetic Data</h3>
+                                    <p class="pub-authors">Supervised By: Md. Tanvir Raihan</p>
+                                    <p class="pub-venue"><em>International Conference on Computer and Information Technology (ICCIT), IEEE Xplore</em></p>
+                                    <div class="pub-links">
+                                        <a href="https://ieeexplore.ieee.org/abstract/document/11491266/" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                                        <a href="https://github.com/TheAhsanFarabi/EcoDetect" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fab fa-github"></i> Code</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pub-card-back">
+                                <div class="pub-back-header">
+                                    <span class="pub-back-tag"><i class="fas fa-file-alt"></i> Abstract & Summary</span>
+                                    <span class="flip-hint"><i class="fas fa-undo"></i> Flip Back</span>
+                                </div>
+                                <h4 class="pub-back-title">EcoDetect: Lightweight Real-Time Recyclable Waste Detection Using YOLOv11n Trained on LLM-Guided Synthetic Data</h4>
+                                <p class="pub-desc">Utilized AI-generated synthetic images to train a lightweight YOLOv11n waste detection model, eliminating the need for manual data collection while achieving 78.9% precision and 81.1% mAP on real-world benchmark tests.</p>
+                                <div class="pub-links">
+                                    <a href="https://ieeexplore.ieee.org/abstract/document/11491266/" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fas fa-file-pdf"></i> Paper</a>
+                                    <a href="https://github.com/TheAhsanFarabi/EcoDetect" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fab fa-github"></i> Code</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="pub-item" data-category="preprint">
-                        <div class="pub-content">
-                            <h3 class="pub-title">ShikkhaChain: A Blockchain-Powered Academic Credential Verification System for Bangladesh</h3>
-                            <span class="status-btn preprint">Preprint</span>
-                            <p style="margin-top: 10px; color: var(--text-secondary);">A decentralized Ethereum and IPFS-based platform designed to securely combat academic credential fraud in Bangladesh through automated smart contracts.</p>
+                    <!-- Paper 4: ShikkhaChain -->
+                    <div class="pub-item" data-category="preprint" tabindex="0" role="button" aria-label="Click to flip for paper abstract">
+                        <div class="pub-card-inner">
+                            <div class="pub-card-front">
+                                <div class="pub-publisher-logo">
+                                    <img src="assets/publisher_icon/arxiv.png" alt="arXiv Preprint" class="pub-icon-img">
+                                </div>
+                                <div class="pub-content">
+                                    <div class="pub-header-row">
+                                        <span class="status-btn preprint">Preprint</span>
+                                        <span class="flip-hint"><i class="fas fa-sync-alt"></i> Flip for Abstract</span>
+                                    </div>
+                                    <h3 class="pub-title">ShikkhaChain: A Blockchain-Powered Academic Credential Verification System for Bangladesh</h3>
+                                    <p class="pub-venue"><em>arXiv Preprint (arXiv:2508.05334)</em></p>
+                                    <div class="pub-links">
+                                        <a href="https://arxiv.org/abs/2508.05334" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+                                        <a href="https://github.com/TheAhsanFarabi/ShikkhaChain" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fab fa-github"></i> Code</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pub-card-back">
+                                <div class="pub-back-header">
+                                    <span class="pub-back-tag"><i class="fas fa-file-alt"></i> Abstract & Summary</span>
+                                    <span class="flip-hint"><i class="fas fa-undo"></i> Flip Back</span>
+                                </div>
+                                <h4 class="pub-back-title">ShikkhaChain: A Blockchain-Powered Academic Credential Verification System for Bangladesh</h4>
+                                <p class="pub-desc">A decentralized Ethereum and IPFS-based platform designed to securely combat academic credential fraud in Bangladesh through automated smart contracts, QR-based verification, and role-based certificate revocation tracking.</p>
+                                <div class="pub-links">
+                                    <a href="https://arxiv.org/abs/2508.05334" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+                                    <a href="https://github.com/TheAhsanFarabi/ShikkhaChain" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fab fa-github"></i> Code</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="pub-item" data-category="preprint">
-                        <div class="pub-content">
-                            <h3 class="pub-title">IntrusionX: A Hybrid Convolutional-LSTM Deep Learning Framework with Squirrel Search Optimization for Network Intrusion Detection</h3>
-                            <span class="status-btn preprint">Preprint</span>
-                            <p style="margin-top: 10px; color: var(--text-secondary);">A hybrid CNN-LSTM framework employing Squirrel Search Optimization for enhanced network intrusion detection, solving extreme dataset imbalance via resampling.</p>
+                    <!-- Paper 5: IntrusionX -->
+                    <div class="pub-item" data-category="preprint" tabindex="0" role="button" aria-label="Click to flip for paper abstract">
+                        <div class="pub-card-inner">
+                            <div class="pub-card-front">
+                                <div class="pub-publisher-logo">
+                                    <img src="assets/publisher_icon/arxiv.png" alt="arXiv Preprint" class="pub-icon-img">
+                                </div>
+                                <div class="pub-content">
+                                    <div class="pub-header-row">
+                                        <span class="status-btn preprint">Preprint</span>
+                                        <span class="flip-hint"><i class="fas fa-sync-alt"></i> Flip for Abstract</span>
+                                    </div>
+                                    <h3 class="pub-title">IntrusionX: A Hybrid Convolutional-LSTM Deep Learning Framework with Squirrel Search Optimization for Network Intrusion Detection</h3>
+                                    <p class="pub-venue"><em>arXiv Preprint (arXiv:2510.00572)</em></p>
+                                    <div class="pub-links">
+                                        <a href="https://arxiv.org/abs/2510.00572" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+                                        <a href="https://github.com/TheAhsanFarabi/IntrusionX" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fab fa-github"></i> Code</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pub-card-back">
+                                <div class="pub-back-header">
+                                    <span class="pub-back-tag"><i class="fas fa-file-alt"></i> Abstract & Summary</span>
+                                    <span class="flip-hint"><i class="fas fa-undo"></i> Flip Back</span>
+                                </div>
+                                <h4 class="pub-back-title">IntrusionX: A Hybrid Convolutional-LSTM Deep Learning Framework with Squirrel Search Optimization for Network Intrusion Detection</h4>
+                                <p class="pub-desc">A hybrid CNN-LSTM framework employing Squirrel Search Optimization for enhanced network intrusion detection, addressing severe class imbalance through robust resampling and temporal feature learning.</p>
+                                <div class="pub-links">
+                                    <a href="https://arxiv.org/abs/2510.00572" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+                                    <a href="https://github.com/TheAhsanFarabi/IntrusionX" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fab fa-github"></i> Code</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="pub-item" data-category="preprint">
-                        <div class="pub-content">
-                            <h3 class="pub-title">InsideOut: An EfficientNetV2-S Based Deep Learning Framework for Robust Multi-Class Facial Emotion Recognition</h3>
-                            <span class="status-btn preprint">Preprint</span>
-                            <p style="margin-top: 10px; color: var(--text-secondary);">An EfficientNetV2-S model using transfer learning for robust, multi-class facial emotion recognition, specializing in classifying subtle human facial expressions.</p>
+                    <!-- Paper 6: InsideOut -->
+                    <div class="pub-item" data-category="preprint" tabindex="0" role="button" aria-label="Click to flip for paper abstract">
+                        <div class="pub-card-inner">
+                            <div class="pub-card-front">
+                                <div class="pub-publisher-logo">
+                                    <img src="assets/publisher_icon/arxiv.png" alt="arXiv Preprint" class="pub-icon-img">
+                                </div>
+                                <div class="pub-content">
+                                    <div class="pub-header-row">
+                                        <span class="status-btn preprint">Preprint</span>
+                                        <span class="flip-hint"><i class="fas fa-sync-alt"></i> Flip for Abstract</span>
+                                    </div>
+                                    <h3 class="pub-title">InsideOut: An EfficientNetV2-S Based Deep Learning Framework for Robust Multi-Class Facial Emotion Recognition</h3>
+                                    <p class="pub-venue"><em>arXiv Preprint (arXiv:2510.03066)</em></p>
+                                    <div class="pub-links">
+                                        <a href="https://arxiv.org/abs/2510.03066" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+                                        <a href="https://github.com/TheAhsanFarabi/InsideOut" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fab fa-github"></i> Code</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pub-card-back">
+                                <div class="pub-back-header">
+                                    <span class="pub-back-tag"><i class="fas fa-file-alt"></i> Abstract & Summary</span>
+                                    <span class="flip-hint"><i class="fas fa-undo"></i> Flip Back</span>
+                                </div>
+                                <h4 class="pub-back-title">InsideOut: An EfficientNetV2-S Based Deep Learning Framework for Robust Multi-Class Facial Emotion Recognition</h4>
+                                <p class="pub-desc">An EfficientNetV2-S model using transfer learning for robust, multi-class facial emotion recognition, specializing in classifying subtle micro-expressions and ambiguous facial cues under varying illumination.</p>
+                                <div class="pub-links">
+                                    <a href="https://arxiv.org/abs/2510.03066" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+                                    <a href="https://github.com/TheAhsanFarabi/InsideOut" target="_blank" rel="noopener noreferrer" class="pub-link"><i class="fab fa-github"></i> Code</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -193,40 +507,105 @@
             <section id="experience" class="content-section">
                 <h2 class="section-title">Experience</h2>
                 <div class="timeline">
-                    <!-- Item 1 -->
+                    <!-- Item 1: Instructor (UIU Computer Club) -->
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
-                        <div class="timeline-date">June 2024 — October 2025</div>
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <h3 class="role-title">Undergraduate Teaching Assistant</h3>
-                                <span class="org-name">United International University</span>
+                        <div class="timeline-date">July 2026 — Present</div>
+                        <div class="timeline-content experience-card-layout">
+                            <div class="experience-company-logo-panel">
+                                <a href="https://computerclub.uiu.ac.bd/" target="_blank" rel="noopener noreferrer" class="company-logo-link" title="UIU Computer Club">
+                                    <img src="assets/company_icon/uiu_computer_club.png" alt="UIU Computer Club Logo" class="experience-panel-logo">
+                                </a>
                             </div>
-                            <span class="location-tag"><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh</span>
-                            <ul class="details-list">
-                                <li><strong>Courses:</strong> Object-Oriented Programming Lab, Database Management Systems Lab</li>
-                                <li>Assisted in delivering laboratory sessions, technical demonstrations, and weekly consultation hours for 100 undergraduate students.</li>
-                                <li>Designed supplementary learning materials, programming exercises, and exam preparation resources.</li>
-                                <li>Mentored student project teams throughout the semester; supervised a team that won the Champion award at the UIU CSE Project Show.</li>
-                            </ul>
+                            <div class="experience-main-content">
+                                <div class="timeline-header">
+                                    <h3 class="role-title">Instructor</h3>
+                                    <a href="https://computerclub.uiu.ac.bd/" target="_blank" rel="noopener noreferrer" class="org-name company-link">
+                                        UIU Computer Club <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                                <span class="location-tag"><i class="fas fa-map-marker-alt"></i> Hybrid &bull; Dhaka, Bangladesh</span>
+                                <div class="assigned-project-box">
+                                    <span class="project-pill-label"><i class="fas fa-chalkboard-teacher"></i> Workshop:</span>
+                                    <div class="assigned-project-pills">
+                                        <span class="assigned-pill">From Idea to Deployment: A hands on ML Journey</span>
+                                    </div>
+                                </div>
+                                <ul class="details-list">
+                                    <li>Conducted interactive, hands-on sessions on practical machine learning workflows.</li>
+                                    <li>Demonstrated an agentic workflow to build ML projects from scratch using prompt engineering.</li>
+                                    <li>Provided research directions and guidance for ML project development.</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Item 2 -->
+                    <!-- Item 2: App Developer (Codepotro) -->
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-date">April 2026 — Present</div>
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <h3 class="role-title">App Developer</h3>
-                                <span class="org-name">Codepotro</span>
+                        <div class="timeline-content experience-card-layout">
+                            <div class="experience-company-logo-panel">
+                                <a href="https://codepotro.com/" target="_blank" rel="noopener noreferrer" class="company-logo-link" title="Codepotro">
+                                    <img src="assets/company_icon/codepotro.png" alt="Codepotro Logo" class="experience-panel-logo">
+                                </a>
                             </div>
-                            <span class="location-tag"><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh</span>
-                            <ul class="details-list">
-                                <li>Assisted in analyzing the feasibility and requirements of mobile applications.</li>
-                                <li>Developed and implemented app features using Android Studio.</li>
-                                <li>Performed basic testing, debugging, and UI validation to ensure app functionality and stability.</li>
-                            </ul>
+                            <div class="experience-main-content">
+                                <div class="timeline-header">
+                                    <h3 class="role-title">App Developer</h3>
+                                    <a href="https://codepotro.com/" target="_blank" rel="noopener noreferrer" class="org-name company-link">
+                                        Codepotro <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                                <span class="location-tag"><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh</span>
+                                <div class="assigned-project-box">
+                                    <span class="project-pill-label"><i class="fas fa-tasks"></i> Assigned Projects:</span>
+                                    <div class="assigned-project-pills">
+                                        <span class="assigned-pill">Likho Note keeping App</span>
+                                        <span class="assigned-pill">Borno Keyboard for Linux</span>
+                                        <span class="assigned-pill">Bangla Phonetic Suggestions Research</span>
+                                    </div>
+                                </div>
+                                <ul class="details-list">
+                                    <li>Assisted in analyzing the feasibility and requirements of mobile applications.</li>
+                                    <li>Developed and implemented app features using Android Studio.</li>
+                                    <li>Performed basic testing, debugging, and UI validation to ensure app functionality and stability.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 3: Teaching Assistant (UIU) -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">June 2024 — October 2025</div>
+                        <div class="timeline-content experience-card-layout">
+                            <div class="experience-company-logo-panel">
+                                <a href="https://www.uiu.ac.bd/" target="_blank" rel="noopener noreferrer" class="company-logo-link" title="United International University">
+                                    <img src="assets/company_icon/uiu.png" alt="United International University Logo" class="experience-panel-logo">
+                                </a>
+                            </div>
+                            <div class="experience-main-content">
+                                <div class="timeline-header">
+                                    <h3 class="role-title">Undergraduate Teaching Assistant</h3>
+                                    <a href="https://www.uiu.ac.bd/" target="_blank" rel="noopener noreferrer" class="org-name company-link">
+                                        United International University <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                                <span class="location-tag"><i class="fas fa-map-marker-alt"></i> Contractual &bull; Dhaka, Bangladesh</span>
+                                <div class="assigned-project-box">
+                                    <span class="project-pill-label"><i class="fas fa-book-open"></i> Courses:</span>
+                                    <div class="assigned-project-pills">
+                                        <span class="assigned-pill">Object-Oriented Programming Lab</span>
+                                        <span class="assigned-pill">Database Management Systems Lab</span>
+                                    </div>
+                                </div>
+                                <ul class="details-list">
+                                    <li>Assisted in delivering laboratory sessions, technical demonstrations, and weekly consultation hours for 100 undergraduate students across two laboratory courses.</li>
+                                    <li>Designed supplementary learning materials, programming exercises, and exam preparation resources to reinforce core concepts and improve student learning.</li>
+                                    <li>Mentored student project teams throughout the semester; supervised a team that won the Champion award at the UIU CSE Project Show.</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -238,6 +617,9 @@
                 
                 <div class="projects-grid">
                     <div class="project-card">
+                        <div class="project-img-wrapper">
+                            <img src="assets/projects/1.png" alt="Orchestra Local AI Coding Agent interface" class="project-img" loading="lazy">
+                        </div>
                         <div class="project-card-header">
                             <h4>Orchestra (Local AI Coding Agent)</h4>
                             <span class="achievement-year">2026</span>
@@ -248,9 +630,16 @@
                             <span>Ollama</span>
                             <span>TUI</span>
                         </div>
+                        <div class="project-links">
+                            <a href="https://github.com/TheAhsanFarabi/orchestra" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="https://theahsanfarabi.github.io/orchestra/" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fas fa-external-link-alt"></i> Website</a>
+                        </div>
                     </div>
 
                     <div class="project-card">
+                        <div class="project-img-wrapper project-img-contain">
+                            <img src="assets/projects/2.png" alt="Wiselearn Python Library banner" class="project-img" loading="lazy">
+                        </div>
                         <div class="project-card-header">
                             <h4>Wiselearn (Python Library)</h4>
                             <span class="achievement-year">2026</span>
@@ -261,9 +650,16 @@
                             <span>PyTorch</span>
                             <span>HuggingFace</span>
                         </div>
+                        <div class="project-links">
+                            <a href="https://github.com/TheAhsanFarabi/wiselearn" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="https://pypi.org/project/wiselearn/" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fab fa-python"></i> PyPI</a>
+                        </div>
                     </div>
 
                     <div class="project-card">
+                        <div class="project-img-wrapper">
+                            <img src="assets/projects/3.png" alt="Dispatch API Testing Tool interface" class="project-img" loading="lazy">
+                        </div>
                         <div class="project-card-header">
                             <h4>Dispatch (API Testing Tool)</h4>
                             <span class="achievement-year">2026</span>
@@ -275,9 +671,16 @@
                             <span>Tailwind CSS</span>
                             <span>Zustand</span>
                         </div>
+                        <div class="project-links">
+                            <a href="https://github.com/TheAhsanFarabi/dispatch" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="https://dispatch-testing.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fas fa-play"></i> Live Demo</a>
+                        </div>
                     </div>
 
                     <div class="project-card">
+                        <div class="project-img-wrapper">
+                            <img src="assets/projects/4.png" alt="EcoRover Waste Sorting Robotic Arm" class="project-img" loading="lazy">
+                        </div>
                         <div class="project-card-header">
                             <h4>EcoRover (Waste Sorting Robot)</h4>
                             <span class="achievement-year">2025</span>
@@ -290,9 +693,16 @@
                             <span>Raspberry Pi 5</span>
                             <span>Arduino</span>
                         </div>
+                        <div class="project-links">
+                            <a href="https://github.com/TheAhsanFarabi/EcoRover" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="https://youtu.be/ylTclQSRTeg?si=-GbPpa2ds2V7o0aX" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fab fa-youtube"></i> Video Demo</a>
+                        </div>
                     </div>
 
                     <div class="project-card">
+                        <div class="project-img-wrapper">
+                            <img src="assets/projects/5.png" alt="UIU Platformer Onboarding Game interface" class="project-img" loading="lazy">
+                        </div>
                         <div class="project-card-header">
                             <h4>UIU Platformer (Onboarding Game)</h4>
                             <span class="achievement-year">2024</span>
@@ -301,6 +711,10 @@
                         <div class="project-tech">
                             <span>Java</span>
                             <span>JavaFX</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/TheAhsanFarabi/UIU-Platformer-Game" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="https://youtu.be/bar47waowf8?si=LwgsXSzO4obR1Ytv" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fab fa-youtube"></i> Gameplay Video</a>
                         </div>
                     </div>
                 </div>
@@ -389,7 +803,7 @@
                     <div class="achievement-card">
                         <div class="achievement-icon"><i class="fas fa-certificate"></i></div>
                         <div class="achievement-content">
-                            <h4><a href="#" target="_blank" style="color: inherit; text-decoration: underline;">Machine Learning Specialization</a></h4>
+                            <h4><a href="https://www.coursera.org/account/accomplishments/specialization/13IYSZCN4860" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">Machine Learning Specialization</a></h4>
                             <p class="achievement-org">Stanford University</p>
                             <span class="achievement-year">2024</span>
                         </div>
@@ -397,7 +811,7 @@
                     <div class="achievement-card">
                         <div class="achievement-icon"><i class="fas fa-certificate"></i></div>
                         <div class="achievement-content">
-                            <h4><a href="#" target="_blank" style="color: inherit; text-decoration: underline;">Git & Github</a></h4>
+                            <h4><a href="https://www.coursera.org/account/accomplishments/verify/VUPNJ9AWJ53M" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">Git & Github</a></h4>
                             <p class="achievement-org">Google</p>
                             <span class="achievement-year">2024</span>
                         </div>
@@ -405,7 +819,7 @@
                     <div class="achievement-card">
                         <div class="achievement-icon"><i class="fas fa-certificate"></i></div>
                         <div class="achievement-content">
-                            <h4><a href="#" target="_blank" style="color: inherit; text-decoration: underline;">Raspberry Pi Essential Training</a></h4>
+                            <h4><a href="https://www.linkedin.com/learning/certificates/7f604b6537a82e9ccfac4f5d4471591a22559b71147bbbe44c216d801df9c49e/?trk=share_certificate" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">Raspberry Pi Essential Training</a></h4>
                             <p class="achievement-org">NASBA</p>
                             <span class="achievement-year">2025</span>
                         </div>
@@ -413,7 +827,7 @@
                     <div class="achievement-card">
                         <div class="achievement-icon"><i class="fas fa-certificate"></i></div>
                         <div class="achievement-content">
-                            <h4><a href="#" target="_blank" style="color: inherit; text-decoration: underline;">Scientific Computing with Python</a></h4>
+                            <h4><a href="https://www.freecodecamp.org/certification/ahsanfarabi/scientific-computing-with-python-v7" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">Scientific Computing with Python</a></h4>
                             <p class="achievement-org">freeCodeCamp</p>
                             <span class="achievement-year">2026</span>
                         </div>
@@ -421,7 +835,7 @@
                     <div class="achievement-card">
                         <div class="achievement-icon"><i class="fas fa-certificate"></i></div>
                         <div class="achievement-content">
-                            <h4><a href="#" target="_blank" style="color: inherit; text-decoration: underline;">Claude Code 101</a></h4>
+                            <h4><a href="https://verify.skilljar.com/c/zmvd3qkfdoe9" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">Claude Code 101</a></h4>
                             <p class="achievement-org">Anthropic</p>
                             <span class="achievement-year">2026</span>
                         </div>
@@ -511,53 +925,27 @@
 
 
 
-            <!-- EXTRA CURRICULARS & MEDIA -->
-            <section id="extracurriculars" class="content-section">
-                <h2 class="section-title">Extracurricular Activities</h2>
-                <div class="publications-list">
-                    <div class="pub-item">
-                        <div class="pub-badge" style="background-color: var(--accent-primary); color: #fff;">Organizer</div>
-                        <div class="pub-content">
-                            <h3 class="pub-title"><i class="fas fa-globe"></i> International Workshop on Leadership</h3>
-                            <p class="pub-venue">Organized the international workshop to empower youth with leadership skills and global perspectives.</p>
-                        </div>
-                    </div>
-
-                    <div class="pub-item">
-                        <div class="pub-badge" style="background-color: var(--accent-emerald); color: #fff;">ML Instructor</div>
-                        <div class="pub-content">
-                            <h3 class="pub-title"><i class="fas fa-chalkboard-teacher"></i> UIU Computer Club</h3>
-                            <p class="pub-venue">Served as a Machine Learning instructor, teaching fundamental and advanced ML concepts to university students.</p>
-                        </div>
-                    </div>
-
-                    <div class="pub-item">
-                        <div class="pub-badge" style="background-color: var(--text-primary); color: var(--bg-primary);">Relief Volunteer</div>
-                        <div class="pub-content">
-                            <h3 class="pub-title"><i class="fas fa-hands-helping"></i> Ummah Appeal</h3>
-                            <p class="pub-venue">Volunteered in earthquake relief efforts, providing support and assistance to affected communities.</p>
-                        </div>
-                    </div>
-
-                    <div class="pub-item">
-                        <div class="pub-badge" style="background-color: #3b82f6; color: #fff;">Problem Solver</div>
-                        <div class="pub-content">
-                            <h3 class="pub-title"><i class="fas fa-code"></i> LeetCode & Competitive Programming</h3>
-                            <p class="pub-venue">Solved 100+ LeetCode problems and participated in various competitions, ranking in the top 3% globally.</p>
-                        </div>
-                    </div>
-
-                    <div class="pub-item">
-                        <div class="pub-badge" style="background-color: #8b5cf6; color: #fff;">Competitor</div>
-                        <div class="pub-content">
-                            <h3 class="pub-title"><i class="fas fa-robot"></i> AI Hackathons & ICPC</h3>
-                            <p class="pub-venue">Actively participated in AI Hackathons and the International Collegiate Programming Contest (ICPC).</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
         </main>
     </div>
+
+    <!-- FULL-WIDTH FOOTER: SEIZE THE DAY -->
+    <footer class="seize-footer">
+        <div class="seize-overlay"></div>
+        <div class="seize-container">
+            <div class="seize-sub-banner">
+                <span class="brand-bracket">&gt;</span> CARPE DIEM // MAKE YOUR LIVES EXTRAORDINARY <span class="brand-bracket">&lt;</span>
+            </div>
+            <h2 class="seize-heading">SEIZE THE DAY</h2>
+            <p class="seize-quote">Pursue knowledge relentlessly &bull; Innovate fearlessly &bull; Engineer with purpose</p>
+            <div class="seize-footer-bottom">
+                <span>Designed &amp; Engineered by Ahsan Farabi</span>
+                <span class="seize-dot">&bull;</span>
+                <span>Retro Brutalism Edition</span>
+                <span class="seize-dot">&bull;</span>
+                <span>&copy; 2026 All Rights Reserved</span>
+            </div>
+        </div>
+    </footer>
 
     <!-- Scroll-to-Top Button -->
     <button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top">

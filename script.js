@@ -2,8 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // DOM Elements
     const themeToggleBtn = document.getElementById('theme-toggle');
     const scrollToTopBtn = document.getElementById('scroll-to-top');
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const publicationItems = document.querySelectorAll('.pub-item');
+    const filterButtons = document.querySelectorAll('#research .filter-btn');
+    const publicationItems = document.querySelectorAll('#research .pub-item');
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('.content-section');
 
@@ -75,7 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Toggle visibility based on category match
                 if (filterValue === 'all' || category === filterValue) {
-                    item.style.display = 'flex';
+                    item.style.display = 'block';
+                    item.classList.remove('is-flipped');
                     // Trigger fade-in animation
                     item.style.opacity = '0';
                     setTimeout(() => {
@@ -86,6 +87,58 @@ document.addEventListener('DOMContentLoaded', () => {
                     item.style.display = 'none';
                 }
             });
+        });
+    });
+
+    // 5. Flip Publication Cards on Click
+    publicationItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            // Do not flip if clicking on an interactive link/button
+            if (e.target.closest('a') || e.target.closest('.pub-link') || e.target.closest('button')) {
+                return;
+            }
+            item.classList.toggle('is-flipped');
+        });
+
+        item.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                if (e.target.closest('a') || e.target.closest('.pub-link') || e.target.closest('button')) {
+                    return;
+                }
+                e.preventDefault();
+                item.classList.toggle('is-flipped');
+            }
+        });
+    });
+
+    // 6. Viewport Boundary Clamping for Research Interest Tooltips
+    const interestItems = document.querySelectorAll('.research-interest-item');
+    interestItems.forEach(item => {
+        const popover = item.querySelector('.interest-popover');
+        if (!popover) return;
+
+        const adjustPosition = () => {
+            popover.style.left = '50%';
+            popover.style.transform = 'translateX(-50%) translateY(0)';
+
+            const rect = popover.getBoundingClientRect();
+            const padding = 16;
+            if (rect.left < padding) {
+                const shift = padding - rect.left;
+                popover.style.transform = `translateX(calc(-50% + ${shift}px)) translateY(0)`;
+            } else if (rect.right > window.innerWidth - padding) {
+                const shift = rect.right - (window.innerWidth - padding);
+                popover.style.transform = `translateX(calc(-50% - ${shift}px)) translateY(0)`;
+            }
+        };
+
+        item.addEventListener('mouseenter', adjustPosition);
+        item.addEventListener('focusin', adjustPosition);
+
+        item.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                item.blur();
+            }
         });
     });
 
