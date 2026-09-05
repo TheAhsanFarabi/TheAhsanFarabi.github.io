@@ -22,7 +22,66 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('theme', newTheme);
     });
 
-    // 2. Scroll-to-Top Button Visibility
+    // 2. Mobile Menu Management
+    const mobileMenuBtn = document.getElementById('mobile-menu-toggle');
+    const navbarMenu = document.getElementById('navbar-menu');
+
+    if (mobileMenuBtn && navbarMenu) {
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = navbarMenu.classList.toggle('is-open');
+            mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+            const icon = mobileMenuBtn.querySelector('i');
+            if (icon) {
+                icon.className = isOpen ? 'fas fa-times' : 'fas fa-bars';
+            }
+        });
+
+        // Close mobile menu when clicking any nav link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navbarMenu.classList.contains('is-open')) {
+                    navbarMenu.classList.remove('is-open');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    if (icon) icon.className = 'fas fa-bars';
+                }
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (navbarMenu.classList.contains('is-open') && !navbarMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                navbarMenu.classList.remove('is-open');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (icon) icon.className = 'fas fa-bars';
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navbarMenu.classList.contains('is-open')) {
+                navbarMenu.classList.remove('is-open');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (icon) icon.className = 'fas fa-bars';
+                mobileMenuBtn.focus();
+            }
+        });
+
+        // Close on resize past mobile breakpoint
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && navbarMenu.classList.contains('is-open')) {
+                navbarMenu.classList.remove('is-open');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (icon) icon.className = 'fas fa-bars';
+            }
+        });
+    }
+
+    // 3. Scroll-to-Top Button Visibility
     window.addEventListener('scroll', () => {
         if (window.scrollY > 400) {
             scrollToTopBtn.classList.add('visible');
