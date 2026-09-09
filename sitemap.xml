@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://theahsanfarabi.github.io/</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://theahsanfarabi.github.io/assets/dp.jpeg</image:loc>
+      <image:title>Ahsan Farabi - AI Researcher &amp; App Developer</image:title>
+      <image:caption>Ahsan Farabi - Profile photo on graduation defense day at United International University</image:caption>
+    </image:image>
   </url>
 </urlset>

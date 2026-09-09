@@ -8,7 +8,9 @@
     <meta name="description" content="Portfolio of Ahsan Farabi - AI Researcher & App Developer focusing on Natural Language Processing, Vision Language Models, Green AI, Responsible AI, Human–Computer Interaction, and IoT.">
     <meta name="author" content="Ahsan Farabi">
     <meta name="keywords" content="Ahsan Farabi, AI Researcher, App Developer, Natural Language Processing, Vision Language Model, Green AI, Responsible AI, Human–Computer Interaction, IoT, Machine Learning, UIU, Dhaka, Bangladesh, TheAhsanFarabi">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large">
     <meta name="google-site-verification" content="9lz5wgsFWJlBwzhiOWq2nNKKkCsw4HiU-Fhs3G-dSfs" />
     <meta name="theme-color" content="#1e1e1e">
     <link rel="canonical" href="https://theahsanfarabi.github.io/">
@@ -16,13 +18,22 @@
     <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="assets/dp.jpeg">
     <link rel="apple-touch-icon" href="assets/dp.jpeg">
+    <link rel="preload" as="image" href="assets/dp.jpeg" type="image/jpeg" fetchpriority="high">
 
     <!-- Open Graph / Facebook / LinkedIn -->
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="profile">
+    <meta property="profile:first_name" content="Ahsan">
+    <meta property="profile:last_name" content="Farabi">
+    <meta property="profile:username" content="TheAhsanFarabi">
     <meta property="og:url" content="https://theahsanfarabi.github.io/">
     <meta property="og:title" content="Ahsan Farabi | AI Researcher & App Developer">
     <meta property="og:description" content="Portfolio of Ahsan Farabi - AI Researcher & App Developer specializing in Natural Language Processing, Vision Language Models, Green AI, Responsible AI, Human–Computer Interaction, and IoT.">
     <meta property="og:image" content="https://theahsanfarabi.github.io/assets/dp.jpeg">
+    <meta property="og:image:secure_url" content="https://theahsanfarabi.github.io/assets/dp.jpeg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="1280">
+    <meta property="og:image:alt" content="Ahsan Farabi - AI Researcher & App Developer">
     <meta property="og:site_name" content="Ahsan Farabi Portfolio">
 
     <!-- Twitter Card -->
@@ -31,43 +42,84 @@
     <meta name="twitter:title" content="Ahsan Farabi | AI Researcher & App Developer">
     <meta name="twitter:description" content="Portfolio of Ahsan Farabi - AI Researcher & App Developer specializing in Natural Language Processing, Vision Language Models, Green AI, Responsible AI, Human–Computer Interaction, and IoT.">
     <meta name="twitter:image" content="https://theahsanfarabi.github.io/assets/dp.jpeg">
+    <meta name="twitter:image:alt" content="Ahsan Farabi - AI Researcher & App Developer">
 
     <!-- Structured Data (JSON-LD) for Search Engines & Scholar Indexing -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Ahsan Farabi",
-      "url": "https://theahsanfarabi.github.io/",
-      "image": "https://theahsanfarabi.github.io/assets/dp.jpeg",
-      "jobTitle": "AI Researcher & App Developer",
-      "alumniOf": {
-        "@type": "EducationalOrganization",
-        "name": "United International University"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Dhaka",
-        "addressCountry": "Bangladesh"
-      },
-      "email": "mailto:ahsanfarabi1971@gmail.com",
-      "sameAs": [
-        "https://github.com/TheAhsanFarabi",
-        "https://www.linkedin.com/in/ahsanfarabi/",
-        "https://scholar.google.com/citations?user=YYXPe_sAAAAJ",
-        "https://orcid.org/0009-0004-5068-4452",
-        "https://www.researchgate.net/profile/Ahsan-Farabi"
-      ],
-      "knowsAbout": [
-        "Artificial Intelligence",
-        "Natural Language Processing",
-        "Vision Language Models",
-        "Green AI",
-        "Responsible AI",
-        "Human–Computer Interaction",
-        "Internet of Things",
-        "Computer Vision",
-        "Machine Learning"
+      "@graph": [
+        {
+          "@type": "ProfilePage",
+          "@id": "https://theahsanfarabi.github.io/#profilepage",
+          "url": "https://theahsanfarabi.github.io/",
+          "name": "Ahsan Farabi | AI Researcher & App Developer",
+          "description": "Portfolio of Ahsan Farabi - AI Researcher & App Developer specializing in Natural Language Processing, Vision Language Models, Green AI, Responsible AI, Human–Computer Interaction, and IoT.",
+          "primaryImageOfPage": {
+            "@id": "https://theahsanfarabi.github.io/#profilephoto"
+          },
+          "mainEntity": {
+            "@id": "https://theahsanfarabi.github.io/#person"
+          }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://theahsanfarabi.github.io/#person",
+          "name": "Ahsan Farabi",
+          "alternateName": [
+            "Ahsan Farabi",
+            "TheAhsanFarabi"
+          ],
+          "url": "https://theahsanfarabi.github.io/",
+          "image": {
+            "@type": "ImageObject",
+            "@id": "https://theahsanfarabi.github.io/#profilephoto",
+            "url": "https://theahsanfarabi.github.io/assets/dp.jpeg",
+            "contentUrl": "https://theahsanfarabi.github.io/assets/dp.jpeg",
+            "name": "Ahsan Farabi Profile Photo",
+            "caption": "Ahsan Farabi - AI Researcher & App Developer",
+            "description": "Ahsan Farabi on his graduation defense day marking the proud completion of his B.Sc. in CSE at United International University",
+            "representativeOfPage": true,
+            "width": 1280,
+            "height": 1280,
+            "encodingFormat": "image/jpeg"
+          },
+          "jobTitle": "AI Researcher & App Developer",
+          "worksFor": {
+            "@type": "EducationalOrganization",
+            "name": "United International University",
+            "url": "https://www.uiu.ac.bd/"
+          },
+          "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "United International University",
+            "url": "https://www.uiu.ac.bd/"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Dhaka",
+            "addressCountry": "Bangladesh"
+          },
+          "email": "mailto:ahsanfarabi1971@gmail.com",
+          "sameAs": [
+            "https://github.com/TheAhsanFarabi",
+            "https://www.linkedin.com/in/ahsanfarabi/",
+            "https://scholar.google.com/citations?user=YYXPe_sAAAAJ",
+            "https://orcid.org/0009-0004-5068-4452",
+            "https://www.researchgate.net/profile/Ahsan-Farabi"
+          ],
+          "knowsAbout": [
+            "Artificial Intelligence",
+            "Natural Language Processing",
+            "Vision Language Models",
+            "Green AI",
+            "Responsible AI",
+            "Human–Computer Interaction",
+            "Internet of Things",
+            "Computer Vision",
+            "Machine Learning"
+          ]
+        }
       ]
     }
     </script>
@@ -116,16 +168,28 @@
     <div id="app" class="portfolio-container">
         <!-- SIDEBAR (Profile) -->
         <aside class="sidebar">
-            <div class="profile-card">
-                <div class="profile-img-container">
-                    <img src="assets/dp.jpeg" alt="Ahsan Farabi" class="profile-img">
-                </div>
-                <div class="profile-img-caption">Final year defense day — marking the proud completion of my B.Sc. in CSE.</div>
+            <div class="profile-card" itemscope itemtype="https://schema.org/Person">
+                <figure class="profile-img-container" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+                    <img src="assets/dp.jpeg" 
+                         alt="Ahsan Farabi - AI Researcher and App Developer" 
+                         title="Ahsan Farabi" 
+                         class="profile-img" 
+                         width="1280" 
+                         height="1280" 
+                         loading="eager" 
+                         fetchpriority="high" 
+                         decoding="async" 
+                         itemprop="contentUrl">
+                    <meta itemprop="url" content="https://theahsanfarabi.github.io/assets/dp.jpeg">
+                    <meta itemprop="name" content="Ahsan Farabi Profile Photo">
+                    <meta itemprop="caption" content="Ahsan Farabi - AI Researcher &amp; App Developer">
+                </figure>
+                <figcaption class="profile-img-caption">Final year defense day — marking the proud completion of my B.Sc. in CSE.</figcaption>
                 
-                <h1 class="profile-name">Ahsan Farabi</h1>
-                <p class="profile-title">AI Researcher & App Developer</p>
-                <p class="profile-location">
-                    <i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh
+                <h1 class="profile-name" itemprop="name">Ahsan Farabi</h1>
+                <p class="profile-title" itemprop="jobTitle">AI Researcher &amp; App Developer</p>
+                <p class="profile-location" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                    <i class="fas fa-map-marker-alt"></i> <span itemprop="addressLocality">Dhaka</span>, <span itemprop="addressCountry">Bangladesh</span>
                 </p>
 
                 <div class="social-links">
